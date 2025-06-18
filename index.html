@@ -3,36 +3,723 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Drawing Maker - Fun Creative Tools for Children</title>
-    <meta name="description" content="Free online drawing tools for kids with coloring pages, PDF editors, JPG tools, and creative art activities for children of all ages.">
-    <meta name="keywords" content="kids drawing, children art, coloring pages, PDF editor, JPG tools, digital art for kids">
+    <title>NexusFit | Futuristic Fitness Coaching</title>
+    <meta name="description" content="AI-powered fitness coaching with premium products. Transform your body with our cutting-edge technology and expert guidance.">
     
-    <!-- Font Awesome -->
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #FF6B6B;
-            --secondary: #4ECDC4;
-            --accent: #FFE66D;
-            --dark: #292F36;
-            --light: #F7FFF7;
-            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --primary: #00f0ff;
+            --secondary: #ff4d8d;
+            --dark: #0a0e17;
+            --light: #f0f8ff;
+            --accent: #7b2dff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glow: 0 0 15px rgba(0, 240, 255, 0.5);
         }
-        /* ... (rest of your CSS unchanged, except class names fixed) ... */
-        .section-Play-and-Learn-with-Fun {
-            text-align: center;
-            margin-bottom: 50px;
-            font-family: 'Chewy', cursive;
-            font-size: 2.5rem;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(123, 45, 255, 0.1) 0%, transparent 20%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: var(--glass);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
             color: var(--primary);
         }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 700px;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-20px); }
+        }
+
+        /* Ad Space - Top */
+        .ad-top {
+            padding: 30px 0;
+            background: linear-gradient(90deg, var(--dark), var(--glass), var(--dark));
+            margin: 50px 0;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .ad-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .ad-label {
+            display: inline-block;
+            background: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .ad-content {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Products */
+        .products {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--dark), rgba(10, 14, 23, 0.8));
+        }
+
+        .products-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .products-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .products-slider::-webkit-scrollbar-track {
+            background: var(--glass);
+            border-radius: 10px;
+        }
+
+        .products-slider::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .product-card {
+            min-width: 280px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .product-rating {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Ad Space - Middle */
+        .ad-middle {
+            padding: 50px 0;
+            background: linear-gradient(90deg, var(--dark), var(--accent), var(--dark));
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+            margin: 50px 0;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8), var(--dark));
+            text-align: center;
+        }
+
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            border-radius: 0 30px 30px 0;
+            border: none;
+            background: var(--primary);
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0 20px;
+            background: var(--dark);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-image {
+                opacity: 0.3;
+            }
+        }
+
         @media (max-width: 768px) {
-            .section-Play-and-Learn-with-Fun {
-                font-size: 2rem;
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                border-right: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+                padding: 30px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                text-align: center;
+                padding-top: 150px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .newsletter-box {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 15px;
             }
         }
     </style>
@@ -40,24 +727,25 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-paint-brush"></i>
-                    <span>Kids Drawing Maker</span>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav id="mainNav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#tools">Tools</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#" class="btn">Start Drawing</a></li>
-                    </ul>
-                </nav>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/40" alt="NexusFit Logo">
+                <span class="logo-text">NexusFit</span>
+            </div>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Coaching</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
@@ -66,188 +754,228 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Unlock Your Child's Creativity</h1>
-                <p>Fun, easy-to-use drawing tools designed specifically for kids with PDF editing, JPG tools, and thousands of coloring pages!</p>
-                <a href="#" class="btn btn-primary">Start Drawing Now</a>
+                <h1>Transform Your Fitness With AI-Powered Coaching</h1>
+                <p>Experience the future of personal training with our cutting-edge technology and premium fitness products designed to optimize your results.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#" class="btn btn-secondary">Explore Products</a>
+                </div>
+            </div>
+            
+            <img src="https://via.placeholder.com/700x500" alt="Fitness App Interface" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Top Ad Space -->
+    <section class="ad-top">
+        <div class="container ad-container">
+            <span class="ad-label">Sponsored</span>
+            <div class="ad-content">
+                <!-- Replace with actual ad code -->
+                <a href="#" target="_blank">
+                    <img src="https://via.placeholder.com/728x90" alt="Advertisement" style="width:100%; border-radius:8px;">
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section" id="features">
+    <!-- Features -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-Play-and-Learn-with-Fun">Why Kids Love Our Drawing Tools</h2>
+            <div class="section-title">
+                <h2>Why Choose NexusFit</h2>
+                <p>Our futuristic approach to fitness delivers unmatched results</p>
+            </div>
+            
             <div class="features-grid">
-                <!-- Feature 1 -->
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Easy to Use">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <div class="feature-content">
-                        <h3>Easy to Use</h3>
-                        <p>Designed specifically for little hands and growing minds with intuitive controls and simple interfaces.</p>
-                    </div>
+                    <h3>AI Coaching</h3>
+                    <p>Our artificial intelligence adapts to your progress in real-time, optimizing every workout for maximum efficiency.</p>
                 </div>
-                <!-- Feature 2 -->
+                
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Endless Creativity">
+                    <div class="feature-icon">
+                        <i class="fas fa-vr-cardboard"></i>
                     </div>
-                    <div class="feature-content">
-                        <h3>Endless Creativity</h3>
-                        <p>Hundreds of brushes, stamps, colors and templates to spark imagination and artistic expression.</p>
-                    </div>
+                    <h3>VR Workouts</h3>
+                    <p>Immerse yourself in breathtaking virtual environments that make exercise an adventure.</p>
                 </div>
-                <!-- Feature 3 -->
+                
                 <div class="feature-card">
-                    <div class="feature-img">
-                        <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-4.0.3&auto=format&fit=crop&w=1032&q=80" alt="Family Fun">
+                    <div class="feature-icon">
+                        <i class="fas fa-dna"></i>
                     </div>
-                    <div class="feature-content">
-                        <h3>Family Fun</h3>
-                        <p>Tools designed for kids but fun for the whole family to create art together.</p>
+                    <h3>DNA Analysis</h3>
+                    <p>Get personalized nutrition and training plans based on your genetic profile (optional test required).</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
+                    <h3>Smart Equipment</h3>
+                    <p>Our connected devices automatically adjust resistance and track every rep with perfect accuracy.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tools Section -->
-    <section class="section" id="tools">
+    <!-- Products -->
+    <section class="products">
         <div class="container">
-            <h2 class="section-Play-and-Learn-with-Fun">Our Amazing Tools</h2>
-            <div class="tools-container">
-                <div class="tools-grid">
-                    <!-- Tool 1 -->
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-pencil-alt"></i>
-                        </div>
-                        <h3>Drawing Pad</h3>
-                        <p>Digital canvas with brushes, colors and stamps</p>
-                        <a href="#" class="btn">Try It</a>
+            <div class="section-title">
+                <h2>Premium Fitness Tech</h2>
+                <p>Enhance your workouts with our cutting-edge products</p>
+            </div>
+            
+            <div class="products-slider">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x200" alt="Smart Resistance Bands">
+                        <span class="product-badge">Bestseller</span>
                     </div>
-                    <!-- Tool 2 -->
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-file-pdf"></i>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Resistance Bands Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$129.99</span>
+                            <span class="old-price">$159.99</span>
                         </div>
-                        <h3>PDF Editor</h3>
-                        <p>Edit and color PDF coloring books</p>
-                        <a href="#" class="btn">Try It</a>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
                     </div>
-                    <!-- Tool 3 -->
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h3>JPG Tools</h3>
-                        <p>Edit and enhance photos and drawings</p>
-                        <a href="#" class="btn">Try It</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x200" alt="VR Fitness Headset">
+                        <span class="product-badge">New</span>
                     </div>
-                    <!-- Tool 4 -->
-                    <div class="tool-card">
-                        <div class="tool-icon">
-                            <i class="fas fa-palette"></i>
+                    <div class="product-info">
+                        <h3 class="product-title">VR Fitness Headset</h3>
+                        <div class="product-price">
+                            <span class="current-price">$299.99</span>
                         </div>
-                        <h3>Coloring Pages</h3>
-                        <p>1000+ printable coloring sheets</p>
-                        <a href="#" class="btn">Try It</a>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x200" alt="AI Nutrition Coach">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">AI Nutrition Coach</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                            <span class="old-price">$119.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/280x200" alt="Smart Jump Rope">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Jump Rope</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="section" id="gallery">
-        <div class="container">
-            <h2 class="section-Play-and-Learn-with-Fun">Gallery of Creations</h2>
-            <p class="text-center" style="margin-bottom: 30px; font-size: 1.2rem;">See what our young artists have created!</p>
-            <div class="gallery">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1618477388954-7858a1f60d78?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Colorful Landscape">
-                    <div class="gallery-overlay">
-                        <h3>Colorful Landscape</h3>
-                        <p>By Emma, age 7</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Animal Friends">
-                    <div class="gallery-overlay">
-                        <h3>Animal Friends</h3>
-                        <p>By Noah, age 5</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Space Adventure">
-                    <div class="gallery-overlay">
-                        <h3>Space Adventure</h3>
-                        <p>By Liam, age 8</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80" alt="Rainbow Unicorn">
-                    <div class="gallery-overlay">
-                        <h3>Rainbow Unicorn</h3>
-                        <p>By Olivia, age 6</p>
-                    </div>
-                </div>
+    <!-- Middle Ad Space -->
+    <section class="ad-middle">
+        <div class="container ad-container">
+            <span class="ad-label">Premium Partner</span>
+            <div class="ad-content">
+                <!-- Replace with actual ad code -->
+                <a href="#" target="_blank">
+                    <img src="https://via.placeholder.com/728x90" alt="Advertisement" style="width:100%; border-radius:8px;">
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-Play-and-Learn-with-Fun" style="color: white;">What Parents Say</h2>
-            <div class="testimonial-grid">
-                <!-- Testimonial 1 -->
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Join thousands who transformed their lives with NexusFit</p>
+            </div>
+            
+            <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>My daughter spends hours creating beautiful artwork with these tools. It's so easy for her to use and keeps her engaged creatively.</p>
+                        "The AI coach understood my body better than any human trainer ever did. I lost 28lbs in 3 months without feeling overwhelmed."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Sarah J." class="author-avatar">
                         <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Parent of 7-year-old</p>
+                            <h4>Sarah J.</h4>
+                            <p>Since 2022</p>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
+                
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>The PDF coloring book editor is genius! We can print my son's creations or save them digitally. Perfect for rainy days.</p>
+                        "The VR workouts make exercise actually fun. I look forward to my sessions now instead of dreading them. Never thought I'd say that!"
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Mike T." class="author-avatar">
                         <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Parent of 5-year-old</p>
+                            <h4>Mike T.</h4>
+                            <p>Since 2021</p>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
+                
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>As a teacher, I recommend this to all my students' parents. The tools are educational while being incredibly fun.</p>
+                        "After trying every fitness program out there, NexusFit's DNA-based approach finally gave me results that lasted. Worth every penny."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Rodriguez">
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Lisa M." class="author-avatar">
                         <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <p>Kindergarten Teacher</p>
+                            <h4>Lisa M.</h4>
+                            <p>Since 2023</p>
                         </div>
                     </div>
                 </div>
@@ -255,13 +983,17 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section">
+    <!-- Newsletter -->
+    <section class="newsletter">
         <div class="container">
-            <div class="cta">
-                <h2>Ready to Spark Creativity?</h2>
-                <p>Join thousands of parents and children who are discovering the joy of digital art creation with our easy-to-use tools.</p>
-                <a href="#" class="btn btn-primary">Start Drawing for Free</a>
+            <div class="newsletter-box">
+                <h3>Join The Fitness Revolution</h3>
+                <p>Subscribe to get exclusive content, early product access, and special offers.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
@@ -269,87 +1001,165 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <!-- Column 1 -->
-                <div class="footer-column">
-                    <h3>Kids Drawing Maker</h3>
-                    <p>
-                        Making digital art fun and accessible for 
-                        <a href="https://www.musk06.com" target="_blank" rel="noopener noreferrer">
-                            children of all ages
-                        </a> since 2023.
-                    </p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://via.placeholder.com/40" alt="NexusFit Logo">
+                        <span class="footer-logo-text">NexusFit</span>
+                    </div>
+                    <p class="footer-about">Pioneering the future of fitness through cutting-edge technology and science-backed methodologies.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <!-- Column 2 -->
-                <div class="footer-column">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li><a href="#">Drawing Pad</a></li>
-                        <li><a href="#">PDF Editor</a></li>
-                        <li><a href="#">JPG Tools</a></li>
-                        <li><a href="#">Coloring Pages</a></li>
-                    </ul>
-                </div>
-                <!-- Column 3 -->
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">Printable Templates</a></li>
-                        <li><a href="#">Art Lessons</a></li>
-                        <li><a href="#">Parent Guides</a></li>
-                    </ul>
-                </div>
-                <!-- Column 4 -->
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Coaching</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
                         <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Future St, Tech City</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@nexusfit.com</li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> Kids Drawing Maker. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 NexusFit. All rights reserved. | Designed for the future of fitness</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-        mobileMenuBtn.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-times');
+            this.querySelector('i').classList.toggle('fa-bars');
         });
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
+                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                    // Close mobile menu if open
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                    }
                 }
             });
         });
+
+        // Product slider navigation
+        const productSlider = document.querySelector('.products-slider');
+        if (productSlider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            productSlider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - productSlider.offsetLeft;
+                scrollLeft = productSlider.scrollLeft;
+            });
+            
+            productSlider.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+            
+            productSlider.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+            
+            productSlider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - productSlider.offsetLeft;
+                const walk = (x - startX) * 2;
+                productSlider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value && emailInput.value.includes('@')) {
+                    alert('Thank you for subscribing to NexusFit!');
+                    emailInput.value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        }
+
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.product-card .btn');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                alert(`${productTitle} has been added to your cart!`);
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.feature-card, .product-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animation
+        document.querySelectorAll('.feature-card, .product-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.5s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
