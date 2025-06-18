@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusFit | Futuristic Fitness Coaching</title>
-    <meta name="description" content="AI-powered fitness coaching with premium products. Transform your body with our cutting-edge technology and expert guidance.">
+    <title>NexusFit | AI-Powered Fitness Coaching</title>
+    <meta name="description" content="Transform your fitness with AI-powered coaching and cutting-edge technology. Personalized workouts, nutrition plans, and smart fitness products.">
     
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #00f0ff;
             --secondary: #ff4d8d;
-            --dark: #0a0e17;
-            --light: #f0f8ff;
             --accent: #7b2dff;
+            --dark: #0a0e17;
+            --darker: #06090f;
+            --light: #f0f8ff;
+            --gray: #a0a8b0;
+            
             --glass: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --glow: 0 0 15px rgba(0, 240, 255, 0.5);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -29,7 +33,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.6;
@@ -42,8 +46,12 @@
         h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .container {
@@ -51,6 +59,70 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--darker);
+            box-shadow: var(--glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--darker);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* Header */
@@ -64,6 +136,12 @@
             backdrop-filter: blur(10px);
             background-color: var(--glass);
             border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(10, 14, 23, 0.9);
         }
 
         .header-container {
@@ -75,16 +153,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo img {
             height: 40px;
+            width: auto;
+            transition: var(--transition);
         }
 
         .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
+            font-weight: 700;
             background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
@@ -99,11 +180,10 @@
 
         nav a {
             color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             position: relative;
             padding: 5px 0;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         nav a:after {
@@ -114,10 +194,11 @@
             width: 0;
             height: 2px;
             background: var(--primary);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
 
-        nav a:hover:after {
+        nav a:hover:after,
+        nav a.active:after {
             width: 100%;
         }
 
@@ -125,6 +206,8 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--light);
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -144,7 +227,7 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 20px;
             background: linear-gradient(to right, var(--primary), var(--light));
             -webkit-background-clip: text;
@@ -156,45 +239,13 @@
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 30px;
-            opacity: 0.9;
+            color: var(--gray);
         }
 
         .hero-btns {
             display: flex;
             gap: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--dark);
-            box-shadow: var(--glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
-        }
-
-        .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--dark);
+            flex-wrap: wrap;
         }
 
         .hero-image {
@@ -206,6 +257,7 @@
             max-width: 700px;
             z-index: 1;
             animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0, 240, 255, 0.2));
         }
 
         @keyframes float {
@@ -214,9 +266,9 @@
         }
 
         /* Ad Space - Top */
-        .ad-top {
+        .ad-space {
             padding: 30px 0;
-            background: linear-gradient(90deg, var(--dark), var(--glass), var(--dark));
+            background: linear-gradient(90deg, var(--darker), var(--glass), var(--darker));
             margin: 50px 0;
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
@@ -236,6 +288,7 @@
             font-size: 0.8rem;
             margin-bottom: 15px;
             font-weight: 600;
+            color: white;
         }
 
         .ad-content {
@@ -244,27 +297,15 @@
             border-radius: 10px;
             padding: 20px;
             backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .ad-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
         }
 
         /* Features */
-        .features {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -276,8 +317,23 @@
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+            transition: var(--transition);
+            opacity: 0;
         }
 
         .feature-card:hover {
@@ -285,20 +341,53 @@
             box-shadow: var(--glow);
         }
 
+        .feature-card:hover:before {
+            opacity: 1;
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(30deg) translate(-30%, -30%); }
+            100% { transform: rotate(30deg) translate(30%, 30%); }
+        }
+
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
         }
 
         .feature-card h3 {
             margin-bottom: 15px;
             font-size: 1.3rem;
+            color: var(--light);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 10px;
         }
 
         /* Products */
         .products {
-            padding: 100px 0;
             background: linear-gradient(to bottom, var(--dark), rgba(10, 14, 23, 0.8));
         }
 
@@ -308,6 +397,8 @@
             overflow-x: auto;
             padding: 20px 0;
             scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--darker);
         }
 
         .products-slider::-webkit-scrollbar {
@@ -331,8 +422,9 @@
             border-radius: 15px;
             overflow: hidden;
             scroll-snap-align: start;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             backdrop-filter: blur(5px);
+            position: relative;
         }
 
         .product-card:hover {
@@ -350,6 +442,7 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
+            z-index: 2;
         }
 
         .product-image {
@@ -376,6 +469,7 @@
         .product-title {
             font-size: 1.1rem;
             margin-bottom: 10px;
+            color: var(--light);
         }
 
         .product-price {
@@ -395,20 +489,28 @@
             text-decoration: line-through;
             opacity: 0.7;
             font-size: 0.9rem;
+            color: var(--gray);
         }
 
         .product-rating {
             color: var(--secondary);
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-rating span {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-left: 5px;
         }
 
         /* Ad Space - Middle */
         .ad-middle {
-            padding: 50px 0;
             background: linear-gradient(90deg, var(--dark), var(--accent), var(--dark));
             background-size: 200% auto;
             animation: gradient 5s ease infinite;
-            margin: 50px 0;
         }
 
         @keyframes gradient {
@@ -418,10 +520,6 @@
         }
 
         /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-        }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -433,7 +531,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             backdrop-filter: blur(5px);
         }
 
@@ -445,6 +543,20 @@
         .testimonial-content {
             margin-bottom: 20px;
             font-style: italic;
+            color: var(--light);
+            position: relative;
+        }
+
+        .testimonial-content:before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
         }
 
         .testimonial-author {
@@ -464,16 +576,17 @@
         .author-info h4 {
             font-size: 1rem;
             margin-bottom: 5px;
+            color: var(--light);
         }
 
         .author-info p {
             font-size: 0.8rem;
             opacity: 0.7;
+            color: var(--gray);
         }
 
         /* Newsletter */
         .newsletter {
-            padding: 100px 0;
             background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8), var(--dark));
             text-align: center;
         }
@@ -486,16 +599,33 @@
             border-radius: 15px;
             padding: 50px;
             backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-box:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(123, 45, 255, 0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+            animation: shine 6s infinite linear;
+            z-index: -1;
         }
 
         .newsletter h3 {
             font-size: 2rem;
             margin-bottom: 20px;
+            color: var(--light);
         }
 
         .newsletter p {
             margin-bottom: 30px;
             opacity: 0.9;
+            color: var(--gray);
         }
 
         .newsletter-form {
@@ -511,7 +641,13 @@
             border-radius: 30px 0 0 30px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .newsletter-form input:focus {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .newsletter-form input::placeholder {
@@ -526,7 +662,7 @@
             font-weight: 600;
             padding: 0 30px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .newsletter-form button:hover {
@@ -534,10 +670,22 @@
             color: white;
         }
 
+        .privacy-notice {
+            font-size: 0.8rem;
+            margin-top: 15px;
+            opacity: 0.7;
+            color: var(--gray);
+        }
+
+        .privacy-notice a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
         /* Footer */
         footer {
             padding: 50px 0 20px;
-            background: var(--dark);
+            background: var(--darker);
             border-top: 1px solid var(--glass-border);
         }
 
@@ -553,6 +701,7 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+            color: var(--light);
         }
 
         .footer-col h4:after {
@@ -575,6 +724,7 @@
         .footer-logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
+            font-weight: 700;
             background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
@@ -584,6 +734,7 @@
         .footer-about p {
             margin-bottom: 20px;
             opacity: 0.8;
+            color: var(--gray);
         }
 
         .social-links {
@@ -601,7 +752,7 @@
             background: var(--glass);
             border: 1px solid var(--glass-border);
             color: var(--light);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
@@ -615,15 +766,16 @@
         }
 
         .footer-links a {
-            color: var(--light);
+            color: var(--gray);
             opacity: 0.8;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            display: inline-block;
         }
 
         .footer-links a:hover {
             opacity: 1;
             color: var(--primary);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
 
         .footer-bottom {
@@ -632,30 +784,53 @@
             text-align: center;
             opacity: 0.7;
             font-size: 0.9rem;
+            color: var(--gray);
         }
 
-        /* Responsive */
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-image {
+                opacity: 0.7;
+            }
+        }
+
         @media (max-width: 992px) {
+            section {
+                padding: 60px 0;
+            }
+            
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: clamp(2.2rem, 5vw, 3rem);
             }
             
             .hero-image {
-                opacity: 0.3;
+                opacity: 0.4;
+            }
+            
+            .newsletter-box {
+                padding: 40px;
             }
         }
 
         @media (max-width: 768px) {
             nav {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: -100%;
                 width: 80%;
-                height: calc(100vh - 80px);
-                background: var(--dark);
+                max-width: 300px;
+                height: 100vh;
+                background: var(--darker);
                 border-right: 1px solid var(--glass-border);
-                transition: all 0.3s ease;
-                padding: 30px;
+                transition: var(--transition);
+                padding: 100px 30px 30px;
+                z-index: 999;
+                overflow-y: auto;
             }
             
             nav.active {
@@ -673,7 +848,9 @@
             
             .hero {
                 text-align: center;
-                padding-top: 150px;
+                padding-top: 120px;
+                min-height: auto;
+                padding-bottom: 80px;
             }
             
             .hero-content {
@@ -685,27 +862,23 @@
             }
             
             .hero-image {
-                display: none;
-            }
-            
-            .newsletter-box {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
+                position: relative;
                 width: 100%;
-                text-align: center;
+                max-width: 500px;
+                margin: 40px auto 0;
+                top: auto;
+                right: auto;
+                transform: none;
+                animation: float-mobile 6s ease-in-out infinite;
+            }
+            
+            @keyframes float-mobile {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
             
             .newsletter-form {
@@ -722,25 +895,57 @@
                 padding: 15px;
             }
         }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 50px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-box {
+                padding: 30px 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="main-header">
         <div class="container header-container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40" alt="NexusFit Logo">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="NexusFit Logo">
                 <span class="logo-text">NexusFit</span>
-            </div>
+            </a>
             
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Coaching</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="coaching.html">Coaching</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             
@@ -757,23 +962,26 @@
                 <h1>Transform Your Fitness With AI-Powered Coaching</h1>
                 <p>Experience the future of personal training with our cutting-edge technology and premium fitness products designed to optimize your results.</p>
                 <div class="hero-btns">
-                    <a href="#" class="btn btn-primary">Start Free Trial</a>
-                    <a href="#" class="btn btn-secondary">Explore Products</a>
+                    <a href="free-trial.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Start Free Trial
+                    </a>
+                    <a href="products.html" class="btn btn-secondary">
+                        <i class="fas fa-shopping-bag"></i> Explore Products
+                    </a>
                 </div>
             </div>
             
-            <img src="https://via.placeholder.com/700x500" alt="Fitness App Interface" class="hero-image">
+            <img src="images/hero-app.png" alt="Fitness App Interface" class="hero-image">
         </div>
     </section>
 
     <!-- Top Ad Space -->
-    <section class="ad-top">
+    <section class="ad-space">
         <div class="container ad-container">
             <span class="ad-label">Sponsored</span>
             <div class="ad-content">
-                <!-- Replace with actual ad code -->
-                <a href="#" target="_blank">
-                    <img src="https://via.placeholder.com/728x90" alt="Advertisement" style="width:100%; border-radius:8px;">
+                <a href="https://www.example-affiliate.com/fitness-tracker?ref=nexusfit" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ad-banner-1.jpg" alt="Limited Time Offer on Smart Fitness Trackers - Save 30% Today" style="width:100%; border-radius:8px;">
                 </a>
             </div>
         </div>
@@ -794,6 +1002,7 @@
                     </div>
                     <h3>AI Coaching</h3>
                     <p>Our artificial intelligence adapts to your progress in real-time, optimizing every workout for maximum efficiency.</p>
+                    <a href="ai-coaching.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -802,6 +1011,7 @@
                     </div>
                     <h3>VR Workouts</h3>
                     <p>Immerse yourself in breathtaking virtual environments that make exercise an adventure.</p>
+                    <a href="vr-workouts.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -810,6 +1020,7 @@
                     </div>
                     <h3>DNA Analysis</h3>
                     <p>Get personalized nutrition and training plans based on your genetic profile (optional test required).</p>
+                    <a href="dna-analysis.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -818,6 +1029,7 @@
                     </div>
                     <h3>Smart Equipment</h3>
                     <p>Our connected devices automatically adjust resistance and track every rep with perfect accuracy.</p>
+                    <a href="smart-equipment.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -833,12 +1045,14 @@
             
             <div class="products-slider">
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x200" alt="Smart Resistance Bands">
-                        <span class="product-badge">Bestseller</span>
-                    </div>
+                    <a href="products/smart-bands-pro.html" class="product-image-link">
+                        <div class="product-image">
+                            <img src="images/product-smart-bands.jpg" alt="Smart Resistance Bands Pro" loading="lazy">
+                            <span class="product-badge">Bestseller</span>
+                        </div>
+                    </a>
                     <div class="product-info">
-                        <h3 class="product-title">Smart Resistance Bands Pro</h3>
+                        <h3 class="product-title"><a href="products/smart-bands-pro.html">Smart Resistance Bands Pro</a></h3>
                         <div class="product-price">
                             <span class="current-price">$129.99</span>
                             <span class="old-price">$159.99</span>
@@ -849,18 +1063,23 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
+                            <span>(247 reviews)</span>
                         </div>
-                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                        <a href="cart.html?add=smart-bands-pro" class="btn btn-secondary" style="width:100%;">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x200" alt="VR Fitness Headset">
-                        <span class="product-badge">New</span>
-                    </div>
+                    <a href="products/vr-headset.html" class="product-image-link">
+                        <div class="product-image">
+                            <img src="images/product-vr-headset.jpg" alt="VR Fitness Headset" loading="lazy">
+                            <span class="product-badge">New</span>
+                        </div>
+                    </a>
                     <div class="product-info">
-                        <h3 class="product-title">VR Fitness Headset</h3>
+                        <h3 class="product-title"><a href="products/vr-headset.html">VR Fitness Headset</a></h3>
                         <div class="product-price">
                             <span class="current-price">$299.99</span>
                         </div>
@@ -870,17 +1089,22 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
+                            <span>(89 reviews)</span>
                         </div>
-                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                        <a href="cart.html?add=vr-headset" class="btn btn-secondary" style="width:100%;">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x200" alt="AI Nutrition Coach">
-                    </div>
+                    <a href="products/ai-nutrition.html" class="product-image-link">
+                        <div class="product-image">
+                            <img src="images/product-ai-nutrition.jpg" alt="AI Nutrition Coach" loading="lazy">
+                        </div>
+                    </a>
                     <div class="product-info">
-                        <h3 class="product-title">AI Nutrition Coach</h3>
+                        <h3 class="product-title"><a href="products/ai-nutrition.html">AI Nutrition Coach</a></h3>
                         <div class="product-price">
                             <span class="current-price">$89.99</span>
                             <span class="old-price">$119.99</span>
@@ -891,17 +1115,22 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
+                            <span>(512 reviews)</span>
                         </div>
-                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                        <a href="cart.html?add=ai-nutrition" class="btn btn-secondary" style="width:100%;">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
                     </div>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/280x200" alt="Smart Jump Rope">
-                    </div>
+                    <a href="products/smart-rope.html" class="product-image-link">
+                        <div class="product-image">
+                            <img src="images/product-smart-rope.jpg" alt="Smart Jump Rope" loading="lazy">
+                        </div>
+                    </a>
                     <div class="product-info">
-                        <h3 class="product-title">Smart Jump Rope</h3>
+                        <h3 class="product-title"><a href="products/smart-rope.html">Smart Jump Rope</a></h3>
                         <div class="product-price">
                             <span class="current-price">$59.99</span>
                         </div>
@@ -911,22 +1140,56 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
+                            <span>(176 reviews)</span>
                         </div>
-                        <a href="#" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+                        <a href="cart.html?add=smart-rope" class="btn btn-secondary" style="width:100%;">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
                     </div>
                 </div>
+                
+                <div class="product-card">
+                    <a href="products/smart-scale.html" class="product-image-link">
+                        <div class="product-image">
+                            <img src="images/product-smart-scale.jpg" alt="Smart Body Scale" loading="lazy">
+                        </div>
+                    </a>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="products/smart-scale.html">Smart Body Scale</a></h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="old-price">$99.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(342 reviews)</span>
+                        </div>
+                        <a href="cart.html?add=smart-scale" class="btn btn-secondary" style="width:100%;">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="products.html" class="btn btn-primary">
+                    <i class="fas fa-store"></i> View All Products
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Middle Ad Space -->
-    <section class="ad-middle">
+    <section class="ad-space ad-middle">
         <div class="container ad-container">
             <span class="ad-label">Premium Partner</span>
             <div class="ad-content">
-                <!-- Replace with actual ad code -->
-                <a href="#" target="_blank">
-                    <img src="https://via.placeholder.com/728x90" alt="Advertisement" style="width:100%; border-radius:8px;">
+                <a href="https://www.example-supplements.com/partner-nexusfit?ref=nexusfit" target="_blank" rel="noopener noreferrer">
+                    <img src="images/ad-banner-2.jpg" alt="Premium Protein Supplements - Exclusive 25% Discount for NexusFit Members" style="width:100%; border-radius:8px;">
                 </a>
             </div>
         </div>
@@ -946,9 +1209,11 @@
                         "The AI coach understood my body better than any human trainer ever did. I lost 28lbs in 3 months without feeling overwhelmed."
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="Sarah J." class="author-avatar">
+                        <a href="success-stories/sarah-j.html">
+                            <img src="images/testimonial-sarah.jpg" alt="Sarah J." class="author-avatar" loading="lazy">
+                        </a>
                         <div class="author-info">
-                            <h4>Sarah J.</h4>
+                            <h4><a href="success-stories/sarah-j.html">Sarah J.</a></h4>
                             <p>Since 2022</p>
                         </div>
                     </div>
@@ -959,9 +1224,11 @@
                         "The VR workouts make exercise actually fun. I look forward to my sessions now instead of dreading them. Never thought I'd say that!"
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="Mike T." class="author-avatar">
+                        <a href="success-stories/mike-t.html">
+                            <img src="images/testimonial-mike.jpg" alt="Mike T." class="author-avatar" loading="lazy">
+                        </a>
                         <div class="author-info">
-                            <h4>Mike T.</h4>
+                            <h4><a href="success-stories/mike-t.html">Mike T.</a></h4>
                             <p>Since 2021</p>
                         </div>
                     </div>
@@ -972,13 +1239,21 @@
                         "After trying every fitness program out there, NexusFit's DNA-based approach finally gave me results that lasted. Worth every penny."
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/50" alt="Lisa M." class="author-avatar">
+                        <a href="success-stories/lisa-m.html">
+                            <img src="images/testimonial-lisa.jpg" alt="Lisa M." class="author-avatar" loading="lazy">
+                        </a>
                         <div class="author-info">
-                            <h4>Lisa M.</h4>
+                            <h4><a href="success-stories/lisa-m.html">Lisa M.</a></h4>
                             <p>Since 2023</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="success-stories.html" class="btn btn-outline">
+                    <i class="fas fa-book-open"></i> Read More Success Stories
+                </a>
             </div>
         </div>
     </section>
@@ -990,10 +1265,14 @@
                 <h3>Join The Fitness Revolution</h3>
                 <p>Subscribe to get exclusive content, early product access, and special offers.</p>
                 
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
+                <form class="newsletter-form" action="https://yourapi.example.com/subscribe" method="POST">
+                    <input type="email" name="email" placeholder="Your email address" required>
                     <button type="submit">Subscribe</button>
                 </form>
+                
+                <p class="privacy-notice">
+                    By subscribing, you agree to our <a href="privacy.html">Privacy Policy</a> and consent to receive updates.
+                </p>
             </div>
         </div>
     </section>
@@ -1003,63 +1282,87 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="https://via.placeholder.com/40" alt="NexusFit Logo">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo-white.png" alt="NexusFit Logo" loading="lazy">
                         <span class="footer-logo-text">NexusFit</span>
-                    </div>
+                    </a>
                     <p class="footer-about">Pioneering the future of fitness through cutting-edge technology and science-backed methodologies.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@nexusfit" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://youtube.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Coaching</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="coaching.html">Coaching</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Support</h4>
                     <ul class="footer-links">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Future St, Tech City</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@nexusfit.com</li>
+                        <li><a href="https://maps.google.com/?q=123+Future+St,+Tech+City" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> 123 Future St, Tech City</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
+                        <li><a href="mailto:info@nexusfit.com"><i class="fas fa-envelope"></i> info@nexusfit.com</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 NexusFit. All rights reserved. | Designed for the future of fitness</p>
+                <p>&copy; 2023 NexusFit. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="sitemap.html">Sitemap</a></p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('active');
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const nav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
             this.querySelector('i').classList.toggle('fa-times');
             this.querySelector('i').classList.toggle('fa-bars');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -1091,14 +1394,17 @@
                 isDown = true;
                 startX = e.pageX - productSlider.offsetLeft;
                 scrollLeft = productSlider.scrollLeft;
+                productSlider.style.cursor = 'grabbing';
             });
             
             productSlider.addEventListener('mouseleave', () => {
                 isDown = false;
+                productSlider.style.cursor = 'grab';
             });
             
             productSlider.addEventListener('mouseup', () => {
                 isDown = false;
+                productSlider.style.cursor = 'grab';
             });
             
             productSlider.addEventListener('mousemove', (e) => {
@@ -1118,23 +1424,14 @@
                 const emailInput = this.querySelector('input[type="email"]');
                 
                 if (emailInput.value && emailInput.value.includes('@')) {
-                    alert('Thank you for subscribing to NexusFit!');
+                    // In a real implementation, you would send this to your server
+                    alert('Thank you for subscribing to NexusFit! You will receive a confirmation email shortly.');
                     emailInput.value = '';
                 } else {
                     alert('Please enter a valid email address.');
                 }
             });
         }
-
-        // Add to cart functionality
-        const addToCartButtons = document.querySelectorAll('.product-card .btn');
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-                alert(`${productTitle} has been added to your cart!`);
-            });
-        });
 
         // Animation on scroll
         const animateOnScroll = function() {
@@ -1160,6 +1457,56 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.product-card .btn');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                
+                // In a real implementation, this would add to cart via AJAX
+                alert(`${productTitle} has been added to your cart!`);
+                
+                // Update cart count in header
+                const cartCount = document.createElement('span');
+                cartCount.className = 'cart-count';
+                cartCount.textContent = '1';
+                
+                const cartIcon = document.querySelector('.cart-icon');
+                if (cartIcon) {
+                    const existingCount = cartIcon.querySelector('.cart-count');
+                    if (existingCount) {
+                        existingCount.textContent = parseInt(existingCount.textContent) + 1;
+                    } else {
+                        cartIcon.appendChild(cartCount);
+                    }
+                }
+            });
+        });
+
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            const lazyLoadObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.removeAttribute('loading');
+                        lazyLoadObserver.unobserve(lazyImage);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                lazyLoadObserver.observe(img);
+            });
+        }
     </script>
 </body>
 </html>
