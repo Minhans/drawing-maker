@@ -1,1682 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get expert fitness coaching, workout plans, and premium fitness products. Transform your health with our proven methods.">
-    <meta name="keywords" content="fitness coach, workout plans, fitness products, weight loss, muscle gain, nutrition advice">
-    <meta name="author" content="Fitness Pro Coach">
+    <meta name="description" content="A fun, educational website for kids with puzzle games, rhymes, storytelling, and a parents' guide. Available in multiple languages for global access.">
+    <meta name="keywords" content="kids website, puzzle games, rhymes for kids, storytelling, parents guide, coding for kids, educational activities">
+    <meta name="author" content="Kids Learning Hub">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Fitness Pro Coach | Transform Your Body">
-    <meta property="og:description" content="Professional fitness coaching and premium products for your health journey.">
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
+    <title>Kids Learning Hub - Puzzles, Rhymes, Stories & More</title>
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Kids Learning Hub">
+    <meta property="og:description" content="Engage kids with fun puzzle games, rhymes, storytelling, and a parents' guide.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.fitnessprocoach.com">
-    <meta property="og:image" content="https://www.fitnessprocoach.com/images/og-image.jpg">
-    
-    <title>Fitness Pro Coach | Transform Your Body</title>
-    
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.fitnessprocoach.com">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Fitness Pro Coach",
-      "url": "https://www.fitnessprocoach.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.fitnessprocoach.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- CSS -->
     <style>
-        /* Base Styles */
-        :root {
-            --primary-color: #ff6b6b;
-            --secondary-color: #4ecdc4;
-            --dark-color: #292f36;
-            --light-color: #f7fff7;
-            --accent-color: #ff9f1c;
-            --gray-color: #6c757d;
-            --light-gray: #f8f9fa;
-            --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Open Sans', sans-serif;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Comic Sans MS', Arial, sans-serif;
         }
-
         body {
-            font-family: var(--font-secondary);
-            color: var(--dark-color);
+            background: #f0f4f8;
+            color: #333;
             line-height: 1.6;
-            background-color: var(--light-color);
         }
-
-        a {
+        header {
+            background: #ff6f61;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        nav {
+            background: #ffd700;
+            padding: 1rem;
+        }
+        nav a {
+            color: #333;
             text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
+            margin: 0 1rem;
+            font-size: 1.2rem;
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
+        nav a:hover {
+            color: #ff6f61;
         }
-
-        ul {
-            list-style: none;
-        }
-
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-family: var(--font-primary);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #3dbeb6;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-
-        .section-description {
-            color: var(--gray-color);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        /* Header Styles */
-        .header {
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-        }
-
-        .main-nav ul {
-            display: flex;
-            align-items: center;
-        }
-
-        .main-nav li {
-            margin-left: 30px;
-            position: relative;
-        }
-
-        .main-nav a {
-            font-family: var(--font-primary);
-            font-weight: 600;
-            color: var(--dark-color);
-            padding: 5px 0;
-            position: relative;
-        }
-
-        .main-nav a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: 0;
-            left: 0;
-            transition: var(--transition);
-        }
-
-        .main-nav a:hover:after,
-        .main-nav a.active:after {
-            width: 100%;
-        }
-
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), url('../images/hero-bg.jpg') no-repeat center center/cover;
-            color: white;
-            height: 90vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin-top: 90px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /* Ad Spaces */
-        .ad-space {
-            padding: 20px 0;
-            background-color: var(--light-gray);
-            margin: 40px 0;
-        }
-
-        .ad-placeholder {
-            background-color: #e9ecef;
-            padding: 20px;
-            text-align: center;
-            border-radius: 4px;
-        }
-
-        .ad-placeholder p {
-            color: var(--gray-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        /* Featured Products */
-        .featured-products {
-            padding: 80px 0;
-        }
-
-        .featured-products h2,
-        .latest-posts h2,
-        .testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-family: var(--font-primary);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-image {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .product-details {
-            padding: 20px;
-        }
-
-        .product-details h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .product-details h3 a:hover {
-            color: var(--primary-color);
-        }
-
-        .product-rating {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .product-rating span {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: var(--gray-color);
-            font-size: 1rem;
-            margin-left: 8px;
-        }
-
-        /* Latest Posts */
-        .latest-posts {
-            padding: 80px 0;
-            background-color: var(--light-gray);
-        }
-
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .post-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .post-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .post-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .post-card:hover .post-image img {
-            transform: scale(1.05);
-        }
-
-        .post-content {
-            padding: 20px;
-        }
-
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: var(--gray-color);
-        }
-
-        .post-category {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .post-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-family: var(--font-primary);
-        }
-
-        .post-card h3 a:hover {
-            color: var(--primary-color);
-        }
-
-        .post-excerpt {
-            color: var(--gray-color);
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            color: var(--primary-color);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .read-more:hover {
-            gap: 10px;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-        }
-
-        .testimonial-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 30px;
-            padding: 20px 0;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        .testimonial-slider::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-
-        .testimonial {
-            min-width: 350px;
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            scroll-snap-align: start;
-        }
-
-        .testimonial-content {
-            margin-bottom: 20px;
-        }
-
-        .testimonial-rating {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .testimonial-author h4 {
-            font-family: var(--font-primary);
-            margin-bottom: 5px;
-        }
-
-        .testimonial-author span {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 60px 0;
-        }
-
-        .newsletter-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .newsletter-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-family: var(--font-primary);
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            width: 100%;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-family: var(--font-secondary);
-        }
-
-        .newsletter-form button {
-            border-radius: 0 4px 4px 0;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 60px 0 0;
-        }
-
-        .footer-grid {
+            padding: 2rem;
+        }
+        section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff6f61;
+            margin-bottom: 1rem;
+        }
+        .game-grid, .rhyme-grid, .story-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 1rem;
         }
-
-        .footer-col h4 {
-            font-family: var(--font-primary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h4:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer-about p {
-            margin: 20px 0;
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-
-        .footer-contact i {
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px 0;
-        }
-
-        .footer-copyright {
-            margin-bottom: 10px;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legal a {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-
-        .footer-legal a:hover {
-            opacity: 1;
-            color: var(--primary-color);
-        }
-
-        /* Shopping Cart */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            max-width: 100%;
-            height: 100vh;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            z-index: 1100;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-sidebar.active {
-            right: 0;
-        }
-
-        .cart-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .close-cart {
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--gray-color);
-            transition: var(--transition);
-        }
-
-        .close-cart:hover {
-            color: var(--primary-color);
-            transform: rotate(90deg);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .cart-item-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .cart-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-family: var(--font-primary);
-        }
-
-        .cart-item-price {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .quantity-btn {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .remove-item {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            margin-left: auto;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .remove-item:hover {
-            color: var(--primary-color);
-        }
-
-        .empty-cart {
+        .card {
+            background: #e0f7fa;
+            padding: 1rem;
+            border-radius: 8px;
             text-align: center;
-            padding: 40px 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
-
-        .empty-cart p {
-            margin-bottom: 20px;
-            color: var(--gray-color);
+        .card:hover {
+            transform: scale(1.05);
         }
-
-        .cart-totals {
-            padding: 20px;
-            border-top: 1px solid #eee;
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
         }
-
-        .cart-subtotal {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-weight: 600;
-            font-size: 1.1rem;
+        .ad-placeholder {
+            background: #f0f0f0;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
         }
-
-        .cart-overlay {
+        footer {
+            background: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        #language-switcher {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1050;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            background: #ffd700;
+            border-radius: 5px;
         }
-
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .newsletter-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-            
-            .newsletter-form {
-                max-width: 100%;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .main-nav {
-                position: fixed;
-                top: 90px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 90px);
-                background-color: white;
-                box-shadow: var(--box-shadow);
-                transition: var(--transition);
-                z-index: 999;
-                padding: 30px;
-                overflow-y: auto;
+            header h1 {
+                font-size: 1.8rem;
             }
-            
-            .main-nav.active {
-                left: 0;
-            }
-            
-            .main-nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-            
-            .main-nav li {
-                margin-left: 0;
-            }
-            
-            .mobile-menu-toggle {
+            nav a {
                 display: block;
+                margin: 0.5rem 0;
             }
-            
-            .hero {
-                height: auto;
-                padding: 120px 0 80px;
+            .container {
+                padding: 1rem;
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .featured-products h2,
-            .latest-posts h2,
-            .testimonials h2 {
-                font-size: 2rem;
-            }
-            
-            .cart-sidebar {
-                width: 350px;
+            section {
+                padding: 1rem;
             }
         }
-
-        @media (max-width: 576px) {
-            .product-grid,
-            .post-grid {
+        @media (max-width: 480px) {
+            .game-grid, .rhyme-grid, .story-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .testimonial {
-                min-width: 280px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-legal {
-                justify-content: center;
             }
         }
     </style>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kids Learning Hub",
+        "url": "https://yourdomain.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourdomain.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Skip to Content Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header with Navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="Fitness Pro Coach Logo" width="180" height="60">
-                </a>
-            </div>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="cart-icon">
-                        <a href="#" id="cart-toggle">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+    <header>
+        <h1>Kids Learning Hub</h1>
+        <p>Fun Puzzles, Rhymes, Stories, and More!</p>
     </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Transform Your Body, Transform Your Life</h1>
-                <p>Professional fitness coaching and premium products to help you achieve your health goals</p>
-                <div class="hero-buttons">
-                    <a href="products.html" class="btn btn-primary">Shop Products</a>
-                    <a href="contact.html" class="btn btn-secondary">Book a Session</a>
-                </div>
-            </div>
+    <nav>
+        <a href="#puzzles">Puzzles</a>
+        <a href="#rhymes">Rhymes</a>
+        <a href="#stories">Stories</a>
+        <a href="#parents">Parents' Guide</a>
+    </nav>
+    <div id="language-switcher">
+        <select onchange="switchLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="hi">हिन्दी</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </div>
+    <div class="container">
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder" id="ad-top">
+            <p>Advertisement (Google AdSense Placeholder)</p>
         </div>
-    </section>
-    
-    <!-- Ad Space 1 (Top Banner) -->
-    <section class="ad-space ad-top">
-        <div class="container">
-            <!-- Ad code would go here -->
-            <div class="ad-placeholder">
-                <p>Advertisement</p>
-                <!-- Sample ad code (replace with actual ad code) -->
-                <img src="images/ad-placeholder.jpg" alt="Advertisement" width="728" height="90">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Featured Products -->
-        <section class="featured-products">
-            <div class="container">
-                <h2>Featured Fitness Products</h2>
-                <p class="section-description">Premium equipment and supplements to enhance your workouts</p>
-                
-                <div class="product-grid">
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/protein-powder.jpg" alt="Premium Whey Protein" loading="lazy">
-                            <span class="product-badge">Bestseller</span>
-                        </div>
-                        <div class="product-details">
-                            <h3><a href="product-detail.html">Premium Whey Protein</a></h3>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span>(124 reviews)</span>
-                            </div>
-                            <p class="product-price">$39.99 <span class="old-price">$49.99</span></p>
-                            <button class="btn btn-small add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/resistance-bands.jpg" alt="Resistance Bands Set" loading="lazy">
-                        </div>
-                        <div class="product-details">
-                            <h3><a href="product-detail.html">Resistance Bands Set</a></h3>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span>(87 reviews)</span>
-                            </div>
-                            <p class="product-price">$29.99</p>
-                            <button class="btn btn-small add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="images/fitness-tracker.jpg" alt="Smart Fitness Tracker" loading="lazy">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-details">
-                            <h3><a href="product-detail.html">Smart Fitness Tracker</a></h3>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span>(56 reviews)</span>
-                            </div>
-                            <p class="product-price">$79.99</p>
-                            <button class="btn btn-small add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
+        <!-- Puzzle Games Section -->
+        <section id="puzzles">
+            <h2>Puzzle Games</h2>
+            <p>Explore fun and educational puzzle games inspired by platforms like Code.org and Blockly.</p>
+            <div class="game-grid">
+                <div class="card" onclick="playGame('maze')">
+                    <img src="https://via.placeholder.com/200x150?text=Maze+Game" alt="Maze Game">
+                    <p>Maze Challenge</p>
                 </div>
-                
-                <div class="text-center">
-                    <a href="products.html" class="btn btn-outline">View All Products</a>
+                <div class="card" onclick="playGame('block')">
+                    <img src="https://via.placeholder.com/200x150?text=Block+Puzzle" alt="Block Puzzle">
+                    <p>Block Puzzle</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Ad Space 2 (Middle Banner) -->
-        <section class="ad-space ad-middle">
-            <div class="container">
-                <div class="ad-placeholder">
-                    <p>Advertisement</p>
-                    <!-- Sample ad code (replace with actual ad code) -->
-                    <img src="images/ad-placeholder-2.jpg" alt="Advertisement" width="728" height="90">
+        <!-- Rhymes Section -->
+        <section id="rhymes">
+            <h2>Rhymes</h2>
+            <p>Sing along with classic nursery rhymes from around the world.</p>
+            <div class="rhyme-grid">
+                <div class="card" onclick="playRhyme('twinkle')">
+                    <img src="https://via.placeholder.com/200x150?text=Twinkle+Star" alt="Twinkle Star">
+                    <p>Twinkle Twinkle Little Star</p>
+                </div>
+                <div class="card" onclick="playRhyme('wheels')">
+                    <img src="https://via.placeholder.com/200x150?text=Wheels+Bus" alt="Wheels on the Bus">
+                    <p>Wheels on the Bus</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Latest Blog Posts -->
-        <section class="latest-posts">
-            <div class="container">
-                <h2>Latest Fitness Tips & Articles</h2>
-                <p class="section-description">Expert advice to help you on your fitness journey</p>
-                
-                <div class="post-grid">
-                    <!-- Post 1 -->
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="images/post1.jpg" alt="5 Essential Exercises for Beginners" loading="lazy">
-                        </div>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <span class="post-category">Workouts</span>
-                                <span class="post-date">June 15, 2023</span>
-                            </div>
-                            <h3><a href="blog-single.html">5 Essential Exercises for Beginners</a></h3>
-                            <p class="post-excerpt">Starting your fitness journey can be overwhelming. Here are 5 fundamental exercises to build a strong foundation...</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    
-                    <!-- Post 2 -->
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="images/post2.jpg" alt="Nutrition Myths Debunked" loading="lazy">
-                        </div>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <span class="post-category">Nutrition</span>
-                                <span class="post-date">June 8, 2023</span>
-                            </div>
-                            <h3><a href="blog-single.html">Top 7 Nutrition Myths Debunked</a></h3>
-                            <p class="post-excerpt">Separating fact from fiction in the world of fitness nutrition. Don't fall for these common misconceptions...</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    
-                    <!-- Post 3 -->
-                    <article class="post-card">
-                        <div class="post-image">
-                            <img src="images/post3.jpg" alt="Home Workout Routine" loading="lazy">
-                        </div>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <span class="post-category">Home Workouts</span>
-                                <span class="post-date">June 1, 2023</span>
-                            </div>
-                            <h3><a href="blog-single.html">Effective Home Workout Routine</a></h3>
-                            <p class="post-excerpt">No gym? No problem! This comprehensive home workout routine requires minimal equipment and delivers maximum results...</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+        <!-- Storytelling Section -->
+        <section id="stories">
+            <h2>Storytelling</h2>
+            <p>Enjoy interactive stories inspired by Alice and Scratch storytelling projects.</p>
+            <div class="story-grid">
+                <div class="card" onclick="readStory('goldilocks')">
+                    <img src="https://via.placeholder.com/200x150?text=Goldilocks" alt="Goldilocks">
+                    <p>Goldilocks and the Three Bears</p>
                 </div>
-                
-                <div class="text-center">
-                    <a href="blog.html" class="btn btn-outline">View All Articles</a>
+                <div class="card" onclick="readStory('tortoise')">
+                    <img src="https://via.placeholder.com/200x150?text=Tortoise+Hare" alt="Tortoise and Hare">
+                    <p>The Tortoise and the Hare</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Testimonials -->
-        <section class="testimonials">
-            <div class="container">
-                <h2>Success Stories</h2>
-                <p class="section-description">What our clients say about our coaching and products</p>
-                
-                <div class="testimonial-slider">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"The personalized coaching and premium products completely transformed my approach to fitness. I've lost 25 pounds and gained so much energy!"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/client1.jpg" alt="Sarah J." loading="lazy">
-                            <div>
-                                <h4>Sarah J.</h4>
-                                <span>Client since 2022</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"The resistance bands and workout guides are game-changers. I've built more muscle in 3 months than I did in a year at the gym."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/client2.jpg" alt="Michael T." loading="lazy">
-                            <div>
-                                <h4>Michael T.</h4>
-                                <span>Client since 2021</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <p>"The nutrition advice and meal plans helped me finally understand how to eat for my goals. Combined with the supplements, I've never felt better!"</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/client3.jpg" alt="Lisa M." loading="lazy">
-                            <div>
-                                <h4>Lisa M.</h4>
-                                <span>Client since 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Parents' Guide Section -->
+        <section id="parents">
+            <h2>Parents' Guide</h2>
+            <p>Learn how to support your child's learning journey with tips inspired by Childhood101 and SafeSearchKids.</p>
+            <ul>
+                <li><strong>Introduce Coding Early:</strong> Start with block-based coding like Scratch for ages 5-7.</li>
+                <li><strong>Create a Coding Space:</strong> Set up a distraction-free area for focused learning.</li>
+                <li><strong>Learn Together:</strong> Explore puzzles and stories with your child to boost engagement.</li>
+                <li><strong>Safe Internet Use:</strong> Monitor online activities and use kid-friendly platforms.</li>
+            </ul>
         </section>
-        
-        <!-- Newsletter Signup -->
-        <section class="newsletter">
-            <div class="container">
-                <div class="newsletter-content">
-                    <div class="newsletter-text">
-                        <h3>Get Exclusive Fitness Tips & Offers</h3>
-                        <p>Subscribe to our newsletter and receive weekly workout plans, nutrition advice, and special discounts on our products.</p>
-                    </div>
-                    <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Ad Space 3 (Bottom Banner) -->
-    <section class="ad-space ad-bottom">
-        <div class="container">
-            <div class="ad-placeholder">
-                <p>Advertisement</p>
-                <!-- Sample ad code (replace with actual ad code) -->
-                <img src="images/ad-placeholder-3.jpg" alt="Advertisement" width="728" height="90">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
-                    <img src="images/logo-white.png" alt="Fitness Pro Coach Logo" width="180" height="60">
-                    <p>Helping you achieve your fitness goals through expert coaching and premium products since 2015.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col footer-links">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="products.html?category=supplements">Supplements</a></li>
-                        <li><a href="products.html?category=equipment">Equipment</a></li>
-                        <li><a href="products.html?category=apparel">Apparel</a></li>
-                        <li><a href="products.html?category=accessories">Accessories</a></li>
-                        <li><a href="products.html?category=programs">Training Programs</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col footer-contact">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Fitness St, Health City, HC 12345</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@fitnessprocoach.com</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2023 Fitness Pro Coach. All Rights Reserved.</p>
-                </div>
-                <div class="footer-legal">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="shipping.html">Shipping Policy</a>
-                    <a href="refunds.html">Refund Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Shopping Cart Sidebar -->
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button class="close-cart" id="close-cart">&times;</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Cart items will be dynamically inserted here -->
-            <div class="empty-cart">
-                <p>Your cart is empty</p>
-                <a href="products.html" class="btn btn-outline">Shop Products</a>
-            </div>
-        </div>
-        <div class="cart-totals">
-            <div class="cart-subtotal">
-                <span>Subtotal:</span>
-                <span id="cart-subtotal">$0.00</span>
-            </div>
-            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+ concession>
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder" id="ad-bottom">
+            <p>Advertisement (Google AdSense Placeholder)</p>
         </div>
     </div>
-    <div class="cart-overlay" id="cart-overlay"></div>
-    
-    <!-- JavaScript -->
+    <footer>
+        <p>&copy; 2025 Kids Learning Hub. All rights reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    </footer>
     <script>
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainNav = document.querySelector('.main-nav');
-            
-            mobileMenuToggle.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-                this.querySelector('i').classList.toggle('fa-times');
-                this.querySelector('i').classList.toggle('fa-bars');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const navLinks = document.querySelectorAll('.main-nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                        mobileMenuToggle.querySelector('i').classList.toggle('fa-times');
-                        mobileMenuToggle.querySelector('i').classList.toggle('fa-bars');
-                    }
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Testimonial slider navigation
-            const testimonialSlider = document.querySelector('.testimonial-slider');
-            if (testimonialSlider) {
-                let isDown = false;
-                let startX;
-                let scrollLeft;
-                
-                testimonialSlider.addEventListener('mousedown', (e) => {
-                    isDown = true;
-                    startX = e.pageX - testimonialSlider.offsetLeft;
-                    scrollLeft = testimonialSlider.scrollLeft;
-                });
-                
-                testimonialSlider.addEventListener('mouseleave', () => {
-                    isDown = false;
-                });
-                
-                testimonialSlider.addEventListener('mouseup', () => {
-                    isDown = false;
-                });
-                
-                testimonialSlider.addEventListener('mousemove', (e) => {
-                    if (!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - testimonialSlider.offsetLeft;
-                    const walk = (x - startX) * 2;
-                    testimonialSlider.scrollLeft = scrollLeft - walk;
-                });
-            }
-            
-            // Newsletter form submission
-            const newsletterForm = document.getElementById('newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const emailInput = this.querySelector('input[type="email"]');
-                    
-                    // Simple validation
-                    if (emailInput.value && emailInput.value.includes('@')) {
-                        // Here you would typically send the data to your server
-                        alert('Thank you for subscribing! You\'ll receive our fitness tips and offers soon.');
-                        emailInput.value = '';
-                    } else {
-                        alert('Please enter a valid email address.');
-                    }
-                });
-            }
-            
-            // Lazy loading for images
-            if ('loading' in HTMLImageElement.prototype) {
-                // Native lazy loading is supported
-                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-                lazyImages.forEach(img => {
-                    img.src = img.dataset.src;
-                });
-            } else {
-                // Fallback for browsers without native lazy loading
-                const lazyLoad = function() {
-                    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-                    
-                    const lazyLoadObserver = new IntersectionObserver(function(entries, observer) {
-                        entries.forEach(function(entry) {
-                            if (entry.isIntersecting) {
-                                const lazyImage = entry.target;
-                                lazyImage.src = lazyImage.dataset.src;
-                                lazyImage.removeAttribute('loading');
-                                lazyLoadObserver.unobserve(lazyImage);
-                            }
-                        });
-                    });
-                    
-                    lazyImages.forEach(function(lazyImage) {
-                        lazyLoadObserver.observe(lazyImage);
-                    });
-                };
-                
-                document.addEventListener('DOMContentLoaded', lazyLoad);
-                window.addEventListener('load', lazyLoad);
-                window.addEventListener('resize', lazyLoad);
-                window.addEventListener('scroll', lazyLoad);
-            }
-            
-            // Add to cart buttons
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // In a real implementation, this would add the product to the cart
-                    // For this example, we'll just update the cart count
-                    const cartCount = document.querySelector('.cart-count');
-                    let count = parseInt(cartCount.textContent);
-                    cartCount.textContent = count + 1;
-                    
-                    // Show a quick confirmation
-                    const originalText = this.textContent;
-                    this.textContent = 'Added!';
-                    this.disabled = true;
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.disabled = false;
-                    }, 1500);
-                });
-            });
-        });
-
-        // Shopping Cart Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const cartToggle = document.getElementById('cart-toggle');
-            const closeCart = document.getElementById('close-cart');
-            const cartSidebar = document.getElementById('cart-sidebar');
-            const cartOverlay = document.getElementById('cart-overlay');
-            
-            // Toggle cart visibility
-            if (cartToggle && cartSidebar && cartOverlay) {
-                cartToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    cartSidebar.classList.add('active');
-                    cartOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-                
-                closeCart.addEventListener('click', function() {
-                    cartSidebar.classList.remove('active');
-                    cartOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-                
-                cartOverlay.addEventListener('click', function() {
-                    cartSidebar.classList.remove('active');
-                    this.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            }
-            
-            // Sample cart items data
-            const sampleCartItems = [
-                {
-                    id: 1,
-                    title: 'Premium Whey Protein',
-                    price: 39.99,
-                    quantity: 1,
-                    image: 'images/protein-powder.jpg'
-                },
-                {
-                    id: 2,
-                    title: 'Resistance Bands Set',
-                    price: 29.99,
-                    quantity: 2,
-                    image: 'images/resistance-bands.jpg'
-                }
-            ];
-            
-            // Render cart items
-            function renderCartItems() {
-                const cartItemsContainer = document.getElementById('cart-items');
-                const cartSubtotal = document.getElementById('cart-subtotal');
-                
-                if (sampleCartItems.length === 0) {
-                    cartItemsContainer.innerHTML = `
-                        <div class="empty-cart">
-                            <p>Your cart is empty</p>
-                            <a href="products.html" class="btn btn-outline">Shop Products</a>
-                        </div>
-                    `;
-                    cartSubtotal.textContent = '$0.00';
-                    document.querySelector('.cart-count').textContent = '0';
-                    return;
-                }
-                
-                let itemsHTML = '';
-                let subtotal = 0;
-                let totalItems = 0;
-                
-                sampleCartItems.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    subtotal += itemTotal;
-                    totalItems += item.quantity;
-                    
-                    itemsHTML += `
-                        <div class="cart-item" data-id="${item.id}">
-                            <div class="cart-item-img">
-                                <img src="${item.image}" alt="${item.title}">
-                            </div>
-                            <div class="cart-item-details">
-                                <h4 class="cart-item-title">${item.title}</h4>
-                                <p class="cart-item-price">$${item.price.toFixed(2)}</p>
-                                <div class="cart-item-actions">
-                                    <div class="cart-item-quantity">
-                                        <button class="quantity-btn minus">-</button>
-                                        <span>${item.quantity}</span>
-                                        <button class="quantity-btn plus">+</button>
-                                    </div>
-                                    <button class="remove-item">Remove</button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                cartItemsContainer.innerHTML = itemsHTML;
-                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-                document.querySelector('.cart-count').textContent = totalItems;
-                
-                // Add event listeners to quantity buttons
-                document.querySelectorAll('.quantity-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const cartItem = this.closest('.cart-item');
-                        const itemId = parseInt(cartItem.dataset.id);
-                        const quantityElement = this.parentElement.querySelector('span');
-                        let quantity = parseInt(quantityElement.textContent);
-                        
-                        if (this.classList.contains('plus')) {
-                            quantity++;
-                        } else if (this.classList.contains('minus') && quantity > 1) {
-                            quantity--;
-                        }
-                        
-                        quantityElement.textContent = quantity;
-                        
-                        // Update the quantity in the sample data
-                        const itemIndex = sampleCartItems.findIndex(item => item.id === itemId);
-                        if (itemIndex !== -1) {
-                            sampleCartItems[itemIndex].quantity = quantity;
-                        }
-                        
-                        // Re-render the cart to update subtotal
-                        renderCartItems();
-                    });
-                });
-                
-                // Add event listeners to remove buttons
-                document.querySelectorAll('.remove-item').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const cartItem = this.closest('.cart-item');
-                        const itemId = parseInt(cartItem.dataset.id);
-                        
-                        // Remove the item from the sample data
-                        const itemIndex = sampleCartItems.findIndex(item => item.id === itemId);
-                        if (itemIndex !== -1) {
-                            sampleCartItems.splice(itemIndex, 1);
-                        }
-                        
-                        // Re-render the cart
-                        renderCartItems();
-                    });
-                });
-            }
-            
-            // Initialize the cart
-            renderCartItems();
-        });
-        
-        // Google Analytics (replace with your actual tracking code)
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        function playGame(gameId) {
+            alert(`Starting ${gameId} game... (Placeholder for game logic)`);
+            // Implement game logic here, e.g., a maze game inspired by Blockly
+        }
+        function playRhyme(rhymeId) {
+            alert(`Playing ${rhymeId} rhyme... (Placeholder for audio/video)`);
+            // Implement rhyme playback logic here
+        }
+        function readStory(storyId) {
+            alert(`Reading ${storyId} story... (Placeholder for story content)`);
+            // Implement story display logic here
+        }
+        function switchLanguage(lang) {
+            // Placeholder for language switching logic
+            alert(`Switching to ${lang}...`);
+            // Update content based on language (requires backend or static files)
+        }
     </script>
+    <!-- Google AdSense Script (Placeholder) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>
