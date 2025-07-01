@@ -3,1510 +3,1742 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusFit | AI-Powered Fitness Coaching</title>
-    <meta name="description" content="Transform your fitness with AI-powered coaching and cutting-edge technology. Personalized workouts, nutrition plans, and smart fitness products.">
-    
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <meta name="description" content="Interactive educational platform for kids with real-time puzzle games, nursery rhymes, interactive stories, and parenting resources.">
+    <meta name="keywords" content="kids, children, educational games, puzzle games, nursery rhymes, bedtime stories, parenting, learning">
+    <meta name="author" content="Kids Fun World">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Kids Fun World | Educational Games & Stories">
+    <meta property="og:description" content="Safe, fun, and educational platform for kids aged 2-8 with puzzles, rhymes, stories, and parent guides.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    <title>Kids Fun World | Educational Games, Rhymes & Stories</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    <!-- Three.js for optional WebGL animations (commented out) -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script> -->
     <style>
         :root {
-            --primary: #00f0ff;
-            --secondary: #ff4d8d;
-            --accent: #7b2dff;
-            --dark: #0a0e17;
-            --darker: #06090f;
-            --light: #f0f8ff;
-            --gray: #a0a8b0;
-            
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glow: 0 0 15px rgba(0, 240, 255, 0.5);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+            --dark-color: #1A3C34;
+            --light-color: #F0FAF9;
+            --font-main: 'Poppins', sans-serif;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            font-family: var(--font-main);
+            background-color: var(--light-color);
+            color: var(--dark-color);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(123, 45, 255, 0.1) 0%, transparent 20%);
         }
-
-        h1, h2, h3, h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        section {
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--darker);
-            box-shadow: var(--glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
-        }
-
-        .btn-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--darker);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Header */
         header {
-            position: fixed;
+            background: linear-gradient(135deg, var(--primary-color), #FF8787);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background-color: var(--glass);
-            border-bottom: 1px solid var(--glass-border);
-            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-
-        header.scrolled {
-            padding: 15px 0;
-            background-color: rgba(10, 14, 23, 0.9);
-        }
-
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
+            font-size: 2rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
+            transition: transform 0.3s;
         }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-            transition: var(--transition);
+        .logo:hover {
+            transform: scale(1.05);
         }
-
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .logo i {
+            margin-right: 12px;
+            color: var(--accent-color);
+            font-size: 2.5rem;
         }
-
         nav ul {
             display: flex;
-            gap: 30px;
             list-style: none;
         }
-
-        nav a {
-            color: var(--light);
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
+        nav ul li {
+            margin-left: 2rem;
         }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
+        nav ul li a {
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
-
-        nav a:hover:after,
-        nav a.active:after {
-            width: 100%;
+        nav ul li a:hover, nav ul li a:focus {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
         }
-
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
             cursor: pointer;
-            color: var(--light);
-            z-index: 1001;
         }
-
-        /* Hero Section */
+        /* Hero Section with Animated Background */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: var(--gray);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50%;
-            max-width: 700px;
-            z-index: 1;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 20px 30px rgba(0, 240, 255, 0.2));
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(-50%) translateX(0); }
-            50% { transform: translateY(-50%) translateX(-20px); }
-        }
-
-        /* Ad Space - Top */
-        .ad-space {
-            padding: 30px 0;
-            background: linear-gradient(90deg, var(--darker), var(--glass), var(--darker));
-            margin: 50px 0;
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .ad-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+            color: white;
             text-align: center;
-        }
-
-        .ad-label {
-            display: inline-block;
-            background: var(--accent);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .ad-content {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-            transition: var(--transition);
-        }
-
-        .ad-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
-        }
-
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 30px;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-            position: relative;
+            padding: 6rem 1rem;
             overflow: hidden;
         }
-
-        .feature-card:before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
-            transition: var(--transition);
-            opacity: 0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--glow);
-        }
-
-        .feature-card:hover:before {
-            opacity: 1;
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: rotate(30deg) translate(-30%, -30%); }
-            100% { transform: rotate(30deg) translate(30%, 30%); }
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            color: var(--light);
-        }
-
-        .feature-card p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .read-more {
-            color: var(--primary);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: var(--transition);
-        }
-
-        .read-more:hover {
-            gap: 10px;
-        }
-
-        /* Products */
-        .products {
-            background: linear-gradient(to bottom, var(--dark), rgba(10, 14, 23, 0.8));
-        }
-
-        .products-slider {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) var(--darker);
-        }
-
-        .products-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .products-slider::-webkit-scrollbar-track {
-            background: var(--glass);
-            border-radius: 10px;
-        }
-
-        .products-slider::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-
-        .product-card {
-            min-width: 280px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            overflow: hidden;
-            scroll-snap-align: start;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--glow);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--secondary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .product-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image img {
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--light);
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .current-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            opacity: 0.7;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .product-rating {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .product-rating span {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        /* Ad Space - Middle */
-        .ad-middle {
-            background: linear-gradient(90deg, var(--dark), var(--accent), var(--dark));
-            background-size: 200% auto;
-            animation: gradient 5s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% center; }
-            50% { background-position: 100% center; }
-            100% { background-position: 0% center; }
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 30px;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
-        }
-
-        .testimonial-content {
-            margin-bottom: 20px;
-            font-style: italic;
-            color: var(--light);
-            position: relative;
-        }
-
-        .testimonial-content:before {
-            content: '"';
-            position: absolute;
-            top: -15px;
-            left: -10px;
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.2;
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
-
-        .author-info h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: var(--light);
-        }
-
-        .author-info p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            color: var(--gray);
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8), var(--dark));
-            text-align: center;
-        }
-
-        .newsletter-box {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 50px;
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-box:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(123, 45, 255, 0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
-            animation: shine 6s infinite linear;
+            background: url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634') center/cover no-repeat;
+            animation: heroAnimation 20s linear infinite;
             z-index: -1;
         }
-
-        .newsletter h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--light);
+        @keyframes heroAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-
-        .newsletter p {
-            margin-bottom: 30px;
-            opacity: 0.9;
-            color: var(--gray);
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
         }
-
-        .newsletter-form {
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary-color), #6BE8DF);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn:hover, .btn:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #6BE8DF, var(--secondary-color));
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            animation: fadeIn 1s ease-out;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: cardFadeIn 1s ease-out;
+        }
+        .feature-card:hover, .feature-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover .feature-icon, .feature-card:focus-within .feature-icon {
+            transform: scale(1.1);
+        }
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+        .puzzle-section {
+            padding: 5rem 0;
+            position: relative;
+            background: linear-gradient(rgba(240,249,255,0.8), rgba(240,249,255,0.8));
+            overflow: hidden;
+        }
+        .puzzle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1618411640137-8f67d3c6c1b8') center/cover no-repeat;
+            animation: slideBackground 30s linear infinite;
+            z-index: -1;
+        }
+        @keyframes slideBackground {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .puzzle-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255,255,255,0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .puzzle-header {
             display: flex;
-            max-width: 500px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .puzzle-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .puzzle-tile {
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, var(--secondary-color), #6BE8DF);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s;
+            user-select: none;
+        }
+        .puzzle-tile:hover, .puzzle-tile:focus {
+            transform: scale(1.05);
+        }
+        .puzzle-tile.moving {
+            transform: translateY(-5px);
+            background: linear-gradient(45deg, #3dbeb6, var(--secondary-color));
+        }
+        .puzzle-tile.empty {
+            background: transparent;
+            cursor: default;
+        }
+        .puzzle-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+        .control-btn {
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), #FF8787);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .control-btn:hover, .control-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        #match3Canvas {
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            max-width: 100%;
+            display: block;
             margin: 0 auto;
         }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 30px 0 0 30px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            outline: none;
-            transition: var(--transition);
+        .match3-tile-selected {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
         }
-
-        .newsletter-form input:focus {
-            background: rgba(255, 255, 255, 0.2);
+        #leaderboard {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(240,248,240,0.9);
+            border-radius: 10px;
+            text-align: center;
         }
-
-        .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        #leaderboard ul {
+            list-style: none;
+            padding: 0;
         }
-
-        .newsletter-form button {
-            border-radius: 0 30px 30px 0;
-            border: none;
-            background: var(--primary);
-            color: var(--dark);
+        #leaderboard li {
+            padding: 0.6rem;
+            font-size: 1.1rem;
+        }
+        .rhymes-section {
+            padding: 5rem 0;
+            position: relative;
+            background: white;
+            overflow: hidden;
+        }
+        .rhymes-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+            animation: zoomBackground 25s linear infinite;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        @keyframes zoomBackground {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .rhymes-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .rhymes-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .rhyme-slide {
+            min-width: 100%;
+            padding: 2.5rem;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: slideFadeIn 0.5s ease-out;
+        }
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .rhyme-slide h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
             font-weight: 600;
-            padding: 0 30px;
+        }
+        .rhyme-slide p {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .rhyme-slide audio {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 1rem;
+            border-radius: 10px;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.8);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: var(--transition);
+            z-index: 10;
+            transition: background 0.3s, transform 0.3s;
         }
-
-        .newsletter-form button:hover {
-            background: var(--secondary);
+        .carousel-btn:hover, .carousel-btn:focus {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .prev-btn {
+            left: 15px;
+        }
+        .next-btn {
+            right: 15px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 12px;
+        }
+        .indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .stories-section {
+            padding: 5rem 0;
+            position: relative;
+            background: linear-gradient(rgba(240,249,255,0.8), rgba(240,249,255,0.8));
+            overflow: hidden;
+        }
+        .stories-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover no-repeat;
+            animation: panBackground 40s linear infinite;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        @keyframes panBackground {
+            0% { transform: translateX(0) scale(1.1); }
+            50% { transform: translateX(-20%) scale(1.15); }
+            100% { transform: translateX(0) scale(1.1); }
+        }
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .story-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: cardFadeIn 1s ease-out;
+        }
+        .story-card:hover, .story-card:focus-within {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .story-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+        .story-card:hover .story-img, .story-card:focus-within .story-img {
+            transform: scale(1.05);
+        }
+        .story-content {
+            padding: 1.8rem;
+        }
+        .story-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        .story-content p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        .read-more {
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .read-more:hover, .read-more:focus {
+            color: #3dbeb6;
+        }
+        .parents-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .accordion-item {
+            margin-bottom: 1.2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .accordion-header {
+            background: linear-gradient(45deg, var(--secondary-color), #6BE8DF);
             color: white;
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
         }
-
-        .privacy-notice {
-            font-size: 0.8rem;
-            margin-top: 15px;
-            opacity: 0.7;
-            color: var(--gray);
+        .accordion-header:hover, .accordion-header:focus {
+            background: linear-gradient(45deg, #3dbeb6, var(--secondary-color));
         }
-
-        .privacy-notice a {
-            color: var(--primary);
-            text-decoration: underline;
+        .accordion-content {
+            background: var(--light-color);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
-
-        /* Footer */
+        .accordion-content-inner {
+            padding: 1.5rem;
+        }
+        .contact-form {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: var(--font-main);
+        }
+        .ad-section {
+            padding: 1.2rem;
+            background: #f5f5f5;
+            text-align: center;
+            margin: 2.5rem 0;
+            border-radius: 10px;
+            border: 1px dashed #ccc;
+            min-height: 100px;
+        }
+        .ad-label {
+            display: inline-block;
+            background: #eee;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            color: #666;
+        }
+        .ad-error {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .in-feed-ad {
+            margin: 1.5rem 0;
+            padding: 1.2rem;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-align: center;
+        }
         footer {
-            padding: 50px 0 20px;
-            background: var(--darker);
-            border-top: 1px solid var(--glass-border);
+            background: linear-gradient(135deg, var(--dark-color), #2A4A44);
+            color: white;
+            padding: 4rem 0 1rem;
         }
-
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
         }
-
-        .footer-col h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            color: var(--light);
+        .footer-column h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
-
-        .footer-col h4:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
+        .footer-column ul {
+            list-style: none;
         }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
         }
-
-        .footer-logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .footer-column ul li a:hover, .footer-column ul li a:focus {
+            color: var(--accent-color);
         }
-
-        .footer-about p {
-            margin-bottom: 20px;
-            opacity: 0.8;
-            color: var(--gray);
-        }
-
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 1.2rem;
+            margin-top: 1rem;
         }
-
         .social-links a {
-            display: flex;
-            align-items: center;
+            display: inline-flex;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.15);
             border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            color: var(--light);
-            transition: var(--transition);
+            transition: background 0.3s, transform 0.3s;
         }
-
-        .social-links a:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
+        .social-links a:hover, .social-links a:focus {
+            background: var(--primary-color);
+            transform: scale(1.1);
         }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            opacity: 0.8;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--glass-border);
-            padding-top: 20px;
+        .copyright {
             text-align: center;
-            opacity: 0.7;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 0.9rem;
-            color: var(--gray);
+            color: #ccc;
         }
-
-        .footer-bottom a {
-            color: var(--primary);
-            text-decoration: underline;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-image {
-                opacity: 0.7;
-            }
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
         }
-
-        @media (max-width: 992px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero h1 {
-                font-size: clamp(2.2rem, 5vw, 3rem);
-            }
-            
-            .hero-image {
-                opacity: 0.4;
-            }
-            
-            .newsletter-box {
-                padding: 40px;
-            }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
-
+        .close-modal {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+        .close-modal:hover, .close-modal:focus {
+            color: var(--primary-color);
+        }
+        .story-audio {
+            width: 100%;
+            max-width: 350px;
+            margin: 1.2rem 0;
+            border-radius: 10px;
+        }
+        .story-choice {
+            display: inline-block;
+            margin: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(45deg, var(--secondary-color), #6BE8DF);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        .story-choice:hover, .story-choice:focus {
+            transform: scale(1.05);
+        }
+        .story-progress {
+            margin: 1.2rem 0;
+            font-size: 1rem;
+            color: #444;
+        }
+        [aria-live="polite"] {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        [aria-live="polite"].active {
+            position: static;
+            width: auto;
+            height: auto;
+            overflow: visible;
+        }
         @media (max-width: 768px) {
-            nav {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background: var(--darker);
-                border-right: 1px solid var(--glass-border);
-                transition: var(--transition);
-                padding: 100px 30px 30px;
-                z-index: 999;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
+            .header-container {
                 flex-direction: column;
-                gap: 20px;
+                text-align: center;
             }
-            
-            .mobile-menu {
+            nav ul {
+                margin-top: 1.5rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 0.6rem 0;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .puzzle-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.2rem;
+                right: 1.2rem;
+            }
+            nav {
+                display: none;
+                width: 100%;
+            }
+            nav.active {
                 display: block;
             }
-            
-            .hero {
-                text-align: center;
-                padding-top: 120px;
-                min-height: auto;
-                padding-bottom: 80px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-btns {
-                justify-content: center;
-            }
-            
-            .hero-image {
-                position: relative;
+            #match3Canvas {
                 width: 100%;
-                max-width: 500px;
-                margin: 40px auto 0;
-                top: auto;
-                right: auto;
-                transform: none;
-                animation: float-mobile 6s ease-in-out infinite;
             }
-            
-            @keyframes float-mobile {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-20px); }
+            ins.adsbygoogle {
+                width: 100% !important;
+                height: auto !important;
             }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero {
+                padding: 4rem 1rem;
             }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input {
-                border-radius: 30px;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter-form button {
-                border-radius: 30px;
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            section {
-                padding: 50px 0;
-            }
-            
-            .section-title h2 {
+            .section-title {
                 font-size: 2rem;
             }
-            
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
             }
-            
-            .btn {
-                width: 100%;
+            .hero p {
+                font-size: 1rem;
             }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-box {
-                padding: 30px 20px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .feature-card {
+                padding: 1.5rem;
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kids Fun World",
+        "url": "https://yourdomain.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourdomain.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "description": "Educational platform for kids with real-time puzzle games, nursery rhymes, interactive stories, and parenting resources."
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
-    <header id="main-header">
+    <header role="banner">
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="NexusFit Logo">
-                <span class="logo-text">NexusFit</span>
-            </a>
-            
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="coaching.html">Coaching</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+            <div class="logo">
+                <i class="fas fa-child"></i>
+                <span>Kids Fun World</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav" aria-label="Main navigation">
+                <ul role="menubar">
+                    <li role="menuitem"><a href="#puzzles">Puzzles</a></li>
+                    <li role="menuitem"><a href="#rhymes">Rhymes</a></li>
+                    <li role="menuitem"><a href="#stories">Stories</a></li>
+                    <li role="menuitem"><a href="#parents">Parents</a></li>
                 </ul>
             </nav>
-            
-            <div class="mobile-menu" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
+    <!-- Top Ad Section -->
+    <div class="container ad-section" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-label="Welcome section">
+        <div class="hero-bg"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1>Transform Your Fitness With AI-Powered Coaching</h1>
-                <p>Experience the future of personal training with our cutting-edge technology and premium fitness products designed to optimize your results.</p>
-                <div class="hero-btns">
-                    <a href="free-trial.html" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Start Free Trial
-                    </a>
-                    <a href="products.html" class="btn btn-secondary">
-                        <i class="fas fa-shopping-bag"></i> Explore Products
-                    </a>
-                </div>
-            </div>
-            
-            <img src="images/hero-app.png" alt="Fitness App Interface" class="hero-image">
+            <h1>Welcome to Kids Fun World!</h1>
+            <p>Explore real-time educational games, nursery rhymes, interactive stories, and parenting resources for kids aged 2-8.</p>
+            <a href="#puzzles" class="btn" role="button">Start Playing</a>
         </div>
     </section>
 
-    <!-- Top Ad Space -->
-    <section class="ad-space">
-        <div class="container ad-container">
-            <span class="ad-label">Sponsored</span>
-            <div class="ad-content">
-                <a href="https://www.example-affiliate.com/fitness-tracker?ref=nexusfit" target="_blank" rel="noopener noreferrer">
-                    <img src="images/ad-banner-1.jpg" alt="Limited Time Offer on Smart Fitness Trackers - Save 30% Today" style="width:100%; border-radius:8px;">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features">
+    <!-- Features Section -->
+    <section class="features" id="features" aria-label="Features section">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose NexusFit</h2>
-                <p>Our futuristic approach to fitness delivers unmatched results</p>
-            </div>
-            
+            <h2 class="section-title">What We Offer</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" tabindex="0">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-puzzle-piece"></i>
                     </div>
-                    <h3>AI Coaching</h3>
-                    <p>Our artificial intelligence adapts to your progress in real-time, optimizing every workout for maximum efficiency.</p>
-                    <a href="ai-coaching.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <h3>Educational Puzzles</h3>
+                    <p>Real-time slide and match-3 games to boost problem-solving and cognitive skills.</p>
                 </div>
-                
-                <div class="feature-card">
+                <div class="feature-card" tabindex="0">
                     <div class="feature-icon">
-                        <i class="fas fa-vr-cardboard"></i>
+                        <i class="fas fa-music"></i>
                     </div>
-                    <h3>VR Workouts</h3>
-                    <p>Immerse yourself in breathtaking virtual environments that make exercise an adventure.</p>
-                    <a href="vr-workouts.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <h3>Nursery Rhymes</h3>
+                    <p>Interactive rhymes with audio to enhance language and musical development.</p>
                 </div>
-                
-                <div class="feature-card">
+                <div class="feature-card" tabindex="0">
                     <div class="feature-icon">
-                        <i class="fas fa-dna"></i>
+                        <i class="fas fa-book-open"></i>
                     </div>
-                    <h3>DNA Analysis</h3>
-                    <p>Get personalized nutrition and training plans based on your genetic profile (optional test required).</p>
-                    <a href="dna-analysis.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <h3>Interactive Stories</h3>
+                    <p>Engaging stories with narration and choices to spark imagination.</p>
                 </div>
-                
-                <div class="feature-card">
+                <div class="feature-card" tabindex="0">
                     <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Smart Equipment</h3>
-                    <p>Our connected devices automatically adjust resistance and track every rep with perfect accuracy.</p>
-                    <a href="smart-equipment.html" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <h3>Parent Resources</h3>
+                    <p>Research-backed guides to support your child’s learning journey.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products -->
-    <section class="products">
+    <!-- Puzzle Game Section -->
+    <section class="puzzle-section" id="puzzles" aria-label="Puzzle games section">
+        <div class="puzzle-bg"></div>
         <div class="container">
-            <div class="section-title">
-                <h2>Premium Fitness Tech</h2>
-                <p>Enhance your workouts with our cutting-edge products</p>
+            <h2 class="section-title">Puzzle Games</h2>
+            <div class="puzzle-container">
+                <div class="puzzle-header">
+                    <h3>Slide Puzzle</h3>
+                    <div class="puzzle-moves">Moves: <span id="moveCount">0</span></div>
+                </div>
+                <div class="puzzle-board" id="puzzleBoard" role="grid" aria-label="Slide puzzle"></div>
+                <div class="puzzle-controls">
+                    <button class="control-btn" id="shuffleBtn" role="button">Shuffle</button>
+                    <button class="control-btn" id="resetBtn" role="button">Reset</button>
+                </div>
+                <div aria-live="polite" id="puzzleStatus">Puzzle initialized.</div>
             </div>
-            
-            <div class="products-slider">
-                <div class="product-card">
-                    <a href="products/smart-bands-pro.html" class="product-image-link">
-                        <div class="product-image">
-                            <img src="images/product-smart-bands.jpg" alt="Smart Resistance Bands Pro" loading="lazy">
-                            <span class="product-badge">Bestseller</span>
-                        </div>
-                    </a>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="products/smart-bands-pro.html">Smart Resistance Bands Pro</a></h3>
-                        <div class="product-price">
-                            <span class="current-price">$129.99</span>
-                            <span class="old-price">$159.99</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(247 reviews)</span>
-                        </div>
-                        <a href="cart.html?add=smart-bands-pro" class="btn btn-secondary" style="width:100%;">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </a>
-                    </div>
+            <div class="puzzle-container">
+                <div class="puzzle-header">
+                    <h3>Match-3 Game</h3>
+                    <div class="puzzle-moves">Score: <span id="match3Score">0</span></div>
                 </div>
-                
-                <div class="product-card">
-                    <a href="products/vr-headset.html" class="product-image-link">
-                        <div class="product-image">
-                            <img src="images/product-vr-headset.jpg" alt="VR Fitness Headset" loading="lazy">
-                            <span class="product-badge">New</span>
-                        </div>
-                    </a>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="products/vr-headset.html">VR Fitness Headset</a></h3>
-                        <div class="product-price">
-                            <span class="current-price">$299.99</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(89 reviews)</span>
-                        </div>
-                        <a href="cart.html?add=vr-headset" class="btn btn-secondary" style="width:100%;">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <a href="products/ai-nutrition.html" class="product-image-link">
-                        <div class="product-image">
-                            <img src="images/product-ai-nutrition.jpg" alt="AI Nutrition Coach" loading="lazy">
-                        </div>
-                    </a>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="products/ai-nutrition.html">AI Nutrition Coach</a></h3>
-                        <div class="product-price">
-                            <span class="current-price">$89.99</span>
-                            <span class="old-price">$119.99</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(512 reviews)</span>
-                        </div>
-                        <a href="cart.html?add=ai-nutrition" class="btn btn-secondary" style="width:100%;">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <a href="products/smart-rope.html" class="product-image-link">
-                        <div class="product-image">
-                            <img src="images/product-smart-rope.jpg" alt="Smart Jump Rope" loading="lazy">
-                        </div>
-                    </a>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="products/smart-rope.html">Smart Jump Rope</a></h3>
-                        <div class="product-price">
-                            <span class="current-price">$59.99</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(176 reviews)</span>
-                        </div>
-                        <a href="cart.html?add=smart-rope" class="btn btn-secondary" style="width:100%;">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <a href="products/smart-scale.html" class="product-image-link">
-                        <div class="product-image">
-                            <img src="images/product-smart-scale.jpg" alt="Smart Body Scale" loading="lazy">
-                        </div>
-                    </a>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="products/smart-scale.html">Smart Body Scale</a></h3>
-                        <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="old-price">$99.99</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(342 reviews)</span>
-                        </div>
-                        <a href="cart.html?add=smart-scale" class="btn btn-secondary" style="width:100%;">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="products.html" class="btn btn-primary">
-                    <i class="fas fa-store"></i> View All Products
-                </a>
+                <canvas id="match3Canvas" width="400" height="400" role="application" aria-label="Match-3 game"></canvas>
+                <div id="leaderboard" aria-label="Leaderboard"></div>
+                <div aria-live="polite" id="match3Status">Match-3 game initialized.</div>
             </div>
         </div>
     </section>
 
-    <!-- Middle Ad Space -->
-    <section class="ad-space ad-middle">
-        <div class="container ad-container">
-            <span class="ad-label">Premium Partner</span>
-            <div class="ad-content">
-                <a href="https://www.example-supplements.com/partner-nexusfit?ref=nexusfit" target="_blank" rel="noopener noreferrer">
-                    <img src="images/ad-banner-2.jpg" alt="Premium Protein Supplements - Exclusive 25% Discount for NexusFit Members" style="width:100%; border-radius:8px;">
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Mid-Page Ad Section -->
+    <div class="container ad-section" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="0987654321"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
+    </div>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Rhymes Section -->
+    <section class="rhymes-section" id="rhymes" aria-label="Nursery rhymes section">
+        <div class="rhymes-bg"></div>
         <div class="container">
-            <div class="section-title">
-                <h2>Success Stories</h2>
-                <p>Join thousands who transformed their lives with NexusFit</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "The AI coach understood my body better than any human trainer ever did. I lost 28lbs in 3 months without feeling overwhelmed."
+            <h2 class="section-title">Nursery Rhymes</h2>
+            <div class="rhymes-carousel">
+                <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                <div class="rhymes-slides" id="rhymesSlides">
+                    <div class="rhyme-slide">
+                        <h3>Twinkle Twinkle Little Star</h3>
+                        <p>Twinkle, twinkle, little star,<br>
+                        How I wonder what you are!<br>
+                        Up above the world so high,<br>
+                        Like a diamond in the sky.</p>
+                        <audio controls class="rhyme-audio" aria-label="Play Twinkle Twinkle Little Star" data-title="Twinkle Twinkle Little Star">
+                            <source src="https://www.example.com/audio/twinkle.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
-                    <div class="testimonial-author">
-                        <a href="success-stories/sarah-j.html">
-                            <img src="images/testimonial-sarah.jpg" alt="Sarah J." class="author-avatar" loading="lazy">
-                        </a>
-                        <div class="author-info">
-                            <h4><a href="success-stories/sarah-j.html">Sarah J.</a></h4>
-                            <p>Since 2022</p>
-                        </div>
+                    <div class="rhyme-slide">
+                        <h3>Humpty Dumpty</h3>
+                        <p>Humpty Dumpty sat on a wall,<br>
+                        Humpty Dumpty had a great fall.<br>
+                        All the king's horses and all the king's men<br>
+                        Couldn't put Humpty together again.</p>
+                        <audio controls class="rhyme-audio" aria-label="Play Humpty Dumpty" data-title="Humpty Dumpty">
+                            <source src="https://www.example.com/audio/humpty.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "The VR workouts make exercise actually fun. I look forward to my sessions now instead of dreading them. Never thought I'd say that!"
-                    </div>
-                    <div class="testimonial-author">
-                        <a href="success-stories/mike-t.html">
-                            <img src="images/testimonial-mike.jpg" alt="Mike T." class="author-avatar" loading="lazy">
-                        </a>
-                        <div class="author-info">
-                            <h4><a href="success-stories/mike-t.html">Mike T.</a></h4>
-                            <p>Since 2021</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "After trying every fitness program out there, NexusFit's DNA-based approach finally gave me results that lasted. Worth every penny."
-                    </div>
-                    <div class="testimonial-author">
-                        <a href="success-stories/lisa-m.html">
-                            <img src="images/testimonial-lisa.jpg" alt="Lisa M." class="author-avatar" loading="lazy">
-                        </a>
-                        <div class="author-info">
-                            <h4><a href="success-stories/lisa-m.html">Lisa M.</a></h4>
-                            <p>Since 2023</p>
-                        </div>
+                    <div class="rhyme-slide">
+                        <h3>Row Row Row Your Boat</h3>
+                        <p>Row, row, row your boat,<br>
+                        Gently down the stream.<br>
+                        Merrily, merrily, merrily, merrily,<br>
+                        Life is but a dream.</p>
+                        <audio controls class="rhyme-audio" aria-label="Play Row Row Row Your Boat" data-title="Row Row Row Your Boat">
+                            <source src="https://www.example.com/audio/row.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="success-stories.html" class="btn btn-outline">
-                    <i class="fas fa-book-open"></i> Read More Success Stories
-                </a>
+                <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-indicators" id="indicators" role="tablist">
+                    <div class="indicator active" data-slide="0" role="tab" aria-label="Slide 1" tabindex="0"></div>
+                    <div class="indicator" data-slide="1" role="tab" aria-label="Slide 2" tabindex="0"></div>
+                    <div class="indicator" data-slide="2" role="tab" aria-label="Slide 3" tabindex="0"></div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="control-btn" id="playAllBtn" role="button">Play All</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
+    <!-- Stories Section -->
+    <section class="stories-section" id="stories" aria-label="Bedtime stories section">
+        <div class="stories-bg"></div>
         <div class="container">
-            <div class="newsletter-box">
-                <h3>Join The Fitness Revolution</h3>
-                <p>Subscribe to get exclusive content, early product access, and special offers.</p>
-                
-                <form class="newsletter-form" action="https://yourapi.example.com/subscribe" method="POST">
-                    <input type="email" name="email" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                
-                <p class="privacy-notice">
-                    By subscribing, you agree to our <a href="privacy.html">Privacy Policy</a> and consent to receive updates.
-                </p>
+            <h2 class="section-title">Interactive Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card" tabindex="0">
+                    <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136');"></div>
+                    <div class="story-content">
+                        <h3>The Little Red Hen</h3>
+                        <p>A hardworking hen teaches her friends about helping out.</p>
+                        <a href="#" class="read-more" data-story="red-hen" role="button">Read Full Story</a>
+                    </div>
+                </div>
+                <div class="in-feed-ad" aria-label="Advertisement">
+                    <span class="ad-label">Advertisement</span>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="1122334455"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="true"></ins>
+                    <div class="ad-error" style="display:none;">Ad failed to load</div>
+                </div>
+                <div class="story-card" tabindex="0">
+                    <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646');"></div>
+                    <div class="story-content">
+                        <h3>The Three Little Pigs</h3>
+                        <p>Three pigs build houses and face a wolf’s challenge.</p>
+                        <a href="#" class="read-more" data-story="three-pigs" role="button">Read Full Story</a>
+                    </div>
+                </div>
+                <div class="story-card" tabindex="0">
+                    <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1549056572-75914d5d5fd4');"></div>
+                    <div class="story-content">
+                        <h3>The Tortoise and the Hare</h3>
+                        <p>A classic tale where slow and steady wins the race.</p>
+                        <a href="#" class="read-more" data-story="tortoise-hare" role="button">Read Full Story</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Parents Guide Section -->
+    <section class="parents-section" id="parents" aria-label="Parents guide section">
+        <div class="container">
+            <h2 class="section-title">Parents Guide</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+                        <h3>Educational Benefits of Puzzles</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Puzzles offer numerous benefits for child development:</p>
+                            <ul>
+                                <li>Enhance problem-solving and critical thinking skills</li>
+                                <li>Improve hand-eye coordination and fine motor skills</li>
+                                <li>Boost memory and concentration through pattern recognition</li>
+                                <li>Teach patience and persistence</li>
+                                <li>Support spatial reasoning and visual differentiation</li>
+                            </ul>
+                            <p>Encourage regular puzzle play to foster cognitive growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+                        <h3>Importance of Nursery Rhymes</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Nursery rhymes are key for early literacy:</p>
+                            <ul>
+                                <li>Develop phonemic awareness for reading readiness</li>
+                                <li>Build vocabulary and language skills</li>
+                                <li>Introduce rhythm and rhyme patterns</li>
+                                <li>Enhance memory through repetition</li>
+                                <li>Provide cultural literacy and social bonding</li>
+                            </ul>
+                            <p>Sing and engage with rhymes to support language development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+                        <h3>Reading Tips for Young Children</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Effective storytime strategies:</p>
+                            <ul>
+                                <li>Establish a consistent reading routine</li>
+                                <li>Use expressive voices for characters</li>
+                                <li>Ask questions to encourage critical thinking</li>
+                                <li>Point to words to build print awareness</li>
+                                <li>Prompt predictions to engage imagination</li>
+                            </ul>
+                            <p>Daily reading for 15 minutes boosts literacy significantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+                        <h3>Screen Time Guidelines</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Balancing screen time with learning:</p>
+                            <ul>
+                                <li>Ages 2-5: Limit to 1 hour of quality content daily</li>
+                                <li>Co-view to discuss and contextualize content</li>
+                                <li>Prioritize educational over passive media</li>
+                                <li>Maintain screen-free zones (bedrooms, meals)</li>
+                                <li>Balance with physical and social activities</li>
+                            </ul>
+                            <p>Choose interactive platforms like ours for educational value.</p>
+                            <a href="https://yourdomain.com/parents-guide.pdf" download class="btn" role="button">Download Guide</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+                        <h3>Contact Us</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>We’d love to hear your feedback!</p>
+                            <div class="contact-form">
+                                <input type="text" placeholder="Your Name" aria-label="Your Name">
+                                <input type="email" placeholder="Your Email" aria-label="Your Email">
+                                <textarea placeholder="Your Message" rows="4" aria-label="Your Message"></textarea>
+                                <button class="btn" role="button">Send Feedback</button>
+                            </div>
+                            <p>Note: This is a placeholder form. Replace with a functional backend.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Ad Section -->
+    <div class="container ad-section" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="5678901234"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
+    </div>
+
+    <!-- Story Modal -->
+    <div class="modal" id="storyModal" role="dialog" aria-label="Story modal">
+        <div class="modal-content">
+            <span class="close-modal" aria-label="Close modal" role="button" tabindex="0">×</span>
+            <div id="modalStoryContent"></div>
+            <div aria-live="polite" id="storyStatus"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer>
+    <footer aria-label="Footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">
-                        <img src="images/logo-white.png" alt="NexusFit Logo" loading="lazy">
-                        <span class="footer-logo-text">NexusFit</span>
-                    </a>
-                    <p class="footer-about">Pioneering the future of fitness through cutting-edge technology and science-backed methodologies.</p>
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Kids Fun World provides safe, educational, and fun content for children aged 2-8, inspired by PBS KIDS and Starfall.</p>
                     <div class="social-links">
-                        <a href="https://instagram.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://tiktok.com/@nexusfit" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://youtube.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://twitter.com/nexusfit" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="coaching.html">Coaching</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#puzzles">Puzzle Games</a></li>
+                        <li><a href="#rhymes">Nursery Rhymes</a></li>
+                        <li><a href="#stories">Interactive Stories</a></li>
+                        <li><a href="#parents">Parent Resources</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="shipping.html">Shipping</a></li>
-                        <li><a href="returns.html">Returns</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
+                <div class="footer-column">
+                    <h3>Safety & Privacy</h3>
+                    <ul>
+                        <li><a href="#">Child Safety Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">COPPA Compliance</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://maps.google.com/?q=123+Future+St,+Tech+City" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> 123 Future St, Tech City</a></li>
-                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
-                        <li><a href="mailto:info@nexusfit.com"><i class="fas fa-envelope"></i> info@nexusfit.com</a></li>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@kidsfunworld.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Play Street, Funville</li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 NexusFit. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="sitemap.html">Sitemap</a></p>
+            <div class="copyright">
+                <p>© 2025 Kids Fun World. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Audio for Match-3 Game -->
+    <audio id="matchSound" preload="auto">
+        <source src="https://www.example.com/audio/match.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu');
-        const nav = document.getElementById('main-nav');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-times');
-            this.querySelector('i').classList.toggle('fa-bars');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#main-nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
-                    mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
-                }
-            });
-        });
-
-        // Header scroll effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Error Logging
+            function logError(section, message) {
+                console.error(`[Kids Fun World - ${section}]: ${message}`);
             }
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
+            // Debounce Utility
+            function debounce(fn, ms) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => fn(...args), ms);
+                };
+            }
+
+            // AdSense Error Handling
+            function initAds() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    logError('AdSense', 'Failed to initialize ads: ' + e.message);
+                    document.querySelectorAll('.ad-section .ad-error, .in-feed-ad .ad-error').forEach(error => {
+                        error.style.display = 'block';
                     });
                 }
-            });
-        });
+            }
+            setTimeout(initAds, 1000);
 
-        // Product slider navigation
-        const productSlider = document.querySelector('.products-slider');
-        if (productSlider) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-            
-            productSlider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - productSlider.offsetLeft;
-                scrollLeft = productSlider.scrollLeft;
-                productSlider.style.cursor = 'grabbing';
-            });
-            
-            productSlider.addEventListener('mouseleave', () => {
-                isDown = false;
-                productSlider.style.cursor = 'grab';
-            });
-            
-            productSlider.addEventListener('mouseup', () => {
-                isDown = false;
-                productSlider.style.cursor = 'grab';
-            });
-            
-            productSlider.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - productSlider.offsetLeft;
-                const walk = (x - startX) * 2;
-                productSlider.scrollLeft = scrollLeft - walk;
-            });
-        }
-
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                
-                if (emailInput.value && emailInput.value.includes('@')) {
-                    // In a real implementation, you would send this to your server
-                    alert('Thank you for subscribing to NexusFit! You will receive a confirmation email shortly.');
-                    emailInput.value = '';
-                } else {
-                    alert('Please enter a valid email address.');
-                }
-            });
-        }
-
-        // Animation on scroll
-        const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.feature-card, .product-card, .testimonial-card');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        // Set initial state for animation
-        document.querySelectorAll('.feature-card, .product-card, .testimonial-card').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'all 0.5s ease';
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Add to cart buttons
-        const addToCartButtons = document.querySelectorAll('.product-card .btn');
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-                
-                // In a real implementation, this would add to cart via AJAX
-                alert(`${productTitle} has been added to your cart!`);
-                
-                // Update cart count in header
-                const cartCount = document.createElement('span');
-                cartCount.className = 'cart-count';
-                cartCount.textContent = '1';
-                
-                const cartIcon = document.querySelector('.cart-icon');
-                if (cartIcon) {
-                    const existingCount = cartIcon.querySelector('.cart-count');
-                    if (existingCount) {
-                        existingCount.textContent = parseInt(existingCount.textContent) + 1;
-                    } else {
-                        cartIcon.appendChild(cartCount);
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+                });
+                mobileMenuBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        mainNav.classList.toggle('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', mainNav.classList.contains('active'));
                     }
-                }
-            });
-        });
+                });
+            } else {
+                logError('Header', 'Mobile menu button or main navigation not found');
+            }
 
-        // Lazy loading for images
-        if ('loading' in HTMLImageElement.prototype) {
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            lazyImages.forEach(img => {
-                img.src = img.dataset.src;
-            });
-        } else {
-            const lazyLoadObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const lazyImage = entry.target;
-                        lazyImage.src = lazyImage.dataset.src;
-                        lazyImage.removeAttribute('loading');
-                        lazyLoadObserver.unobserve(lazyImage);
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        if (mainNav && mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    } else {
+                        logError('Navigation', `Target element ${targetId} not found`);
                     }
                 });
             });
 
-            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-                lazyLoadObserver.observe(img);
+            // Slide Puzzle Logic
+            const puzzleBoard = document.getElementById('puzzleBoard');
+            const shuffleBtn = document.getElementById('shuffleBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const moveCountDisplay = document.getElementById('moveCount');
+            const puzzleStatus = document.getElementById('puzzleStatus');
+            let puzzleSize = window.innerWidth <= 768 ? 3 : 4;
+            let emptyIndex = puzzleSize * puzzleSize - 1;
+            let moveCount = 0;
+            let puzzlePieces = [];
+
+            function initPuzzle() {
+                if (!puzzleBoard || !moveCountDisplay || !puzzleStatus) {
+                    logError('Puzzle', 'Puzzle board, move count display, or status not found');
+                    return;
+                }
+                puzzleBoard.innerHTML = '';
+                puzzleBoard.style.gridTemplateColumns = `repeat(${puzzleSize}, 1fr)`;
+                puzzlePieces = Array.from({ length: puzzleSize * puzzleSize - 1 }, (_, i) => i);
+                puzzlePieces.push(emptyIndex);
+                renderPuzzle();
+                moveCount = 0;
+                updateMoveCount();
+                puzzleStatus.textContent = 'Puzzle initialized.';
+            }
+
+            function renderPuzzle() {
+                if (!puzzleBoard) return;
+                puzzleBoard.innerHTML = '';
+                puzzlePieces.forEach((num, index) => {
+                    const tile = document.createElement('div');
+                    tile.className = 'puzzle-tile' + (num === emptyIndex ? ' empty' : '');
+                    if (num !== emptyIndex) {
+                        tile.textContent = num + 1;
+                        tile.dataset.index = index;
+                        tile.tabIndex = 0;
+                        tile.addEventListener('click', debounce(() => moveTile(index), 200));
+                        tile.addEventListener('keydown', (e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                moveTile(index);
+                            }
+                        });
+                        tile.setAttribute('aria-label', `Tile ${num + 1}`);
+                    }
+                    puzzleBoard.appendChild(tile);
+                });
+            }
+
+            function moveTile(index) {
+                if (isAdjacent(index, emptyIndex)) {
+                    const tile = puzzleBoard.querySelector(`[data-index="${index}"]`);
+                    if (tile) {
+                        tile.classList.add('moving');
+                        setTimeout(() => tile.classList.remove('moving'), 300);
+                    }
+                    [puzzlePieces[index], puzzlePieces[emptyIndex]] = [puzzlePieces[emptyIndex], puzzlePieces[index]];
+                    emptyIndex = index;
+                    moveCount++;
+                    updateMoveCount();
+                    renderPuzzle();
+                    if (isSolved()) {
+                        puzzleStatus.textContent = `Congratulations! Solved in ${moveCount} moves!`;
+                        setTimeout(() => alert(`Congratulations! Solved in ${moveCount} moves!`), 100);
+                    } else {
+                        puzzleStatus.textContent = `Moved tile ${puzzlePieces[index] + 1}. Moves: ${moveCount}.`;
+                    }
+                }
+            }
+
+            function isAdjacent(index1, index2) {
+                const row1 = Math.floor(index1 / puzzleSize);
+                const col1 = index1 % puzzleSize;
+                const row2 = Math.floor(index2 / puzzleSize);
+                const col2 = index2 % puzzleSize;
+                return (Math.abs(row1 - row2) === 1 && col1 === col2) || 
+                       (Math.abs(col1 - col2) === 1 && row1 === row2);
+            }
+
+            function isSolved() {
+                return puzzlePieces.every((num, i) => num === i || num === emptyIndex);
+            }
+
+            function shufflePuzzle() {
+                let inversions;
+                do {
+                    for (let i = puzzlePieces.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [puzzlePieces[i], puzzlePieces[j]] = [puzzlePieces[j], puzzlePieces[i]];
+                    }
+                    inversions = countInversions(puzzlePieces.filter(num => num !== emptyIndex));
+                } while (inversions % 2 !== 0);
+                emptyIndex = puzzlePieces.indexOf(puzzleSize * puzzleSize - 1);
+                moveCount = 0;
+                updateMoveCount();
+                renderPuzzle();
+                puzzleStatus.textContent = 'Puzzle shuffled.';
+            }
+
+            function countInversions(arr) {
+                let inv = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = i + 1; j < arr.length; j++) {
+                        if (arr[i] > arr[j]) inv++;
+                    }
+                }
+                return inv;
+            }
+
+            function updateMoveCount() {
+                if (moveCountDisplay) moveCountDisplay.textContent = moveCount;
+            }
+
+            if (shuffleBtn) {
+                shuffleBtn.addEventListener('click', shufflePuzzle);
+                shuffleBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        shufflePuzzle();
+                    }
+                });
+            } else {
+                logError('Puzzle', 'Shuffle button not found');
+            }
+            if (resetBtn) {
+                resetBtn.addEventListener('click', initPuzzle);
+                resetBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        initPuzzle();
+                    }
+                });
+            } else {
+                logError('Puzzle', 'Reset button not found');
+            }
+
+            // Match-3 Game
+            const canvas = document.getElementById('match3Canvas');
+            const match3Score = document.getElementById('match3Score');
+            const leaderboardEl = document.getElementById('leaderboard');
+            const matchSound = document.getElementById('matchSound');
+            const match3Status = document.getElementById('match3Status');
+            const gridSize = 8;
+            let board = [];
+            let selectedTile = null;
+            let score = 0;
+            let leaderboard = JSON.parse(localStorage.getItem('leaderboard') || '[]');
+
+            function initMatch3() {
+                if (!canvas || !match3Score || !leaderboardEl || !match3Status) {
+                    logError('Match-3', 'Canvas, score, leaderboard, or status not found');
+                    return;
+                }
+                canvas.width = 400;
+                canvas.height = 400;
+                board = Array.from({ length: gridSize }, () => 
+                    Array.from({ length: gridSize }, () => Math.floor(Math.random() * 5))
+                );
+                drawBoard();
+                updateLeaderboard();
+                match3Status.textContent = 'Match-3 game initialized.';
+            }
+
+            function drawBoard() {
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const tileSize = canvas.width / gridSize;
+                const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#1A3C34', '#F0FAF9'];
+                for (let row = 0; row < gridSize; row++) {
+                    for (let col = 0; col < gridSize; col++) {
+                        ctx.fillStyle = colors[board[row][col]];
+                        ctx.beginPath();
+                        ctx.arc(col * tileSize + tileSize / 2, row * tileSize + tileSize / 2, tileSize / 2 - 2, 0, Math.PI * 2);
+                        ctx.fill();
+                        if (selectedTile && selectedTile[0] === row && selectedTile[1] === col) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.beginPath();
+                            ctx.arc(col * tileSize + tileSize / 2, row * tileSize + tileSize / 2, tileSize / 2 - 2, 0, Math.PI * 2);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                ctx.font = '22px Poppins';
+                ctx.fillStyle = '#1A3C34';
+                ctx.fillText(`Score: ${score}`, 10, canvas.height - 15);
+                if (match3Score) match3Score.textContent = score;
+            }
+
+            function findMatches() {
+                let matches = [];
+                for (let row = 0; row < gridSize; row++) {
+                    for (let col = 0; col < gridSize - 2; col++) {
+                        if (board[row][col] === board[row][col + 1] && board[row][col] === board[row][col + 2]) {
+                            matches.push([row, col], [row, col + 1], [row, col + 2]);
+                        }
+                    }
+                }
+                for (let col = 0; col < gridSize; col++) {
+                    for (let row = 0; row < gridSize - 2; row++) {
+                        if (board[row][col] === board[row + 1][col] && board[row][col] === board[row + 2][col]) {
+                            matches.push([row, col], [row + 1, col], [row + 2, col]);
+                        }
+                    }
+                }
+                return matches;
+            }
+
+            function removeMatches(matches) {
+                matches.forEach(([row, col]) => {
+                    board[row][col] = -1;
+                });
+                score += matches.length * 10;
+                if (matchSound) {
+                    matchSound.play().catch(() => logError('Match-3', 'Failed to play match sound'));
+                }
+                for (let col = 0; col < gridSize; col++) {
+                    let emptyRow = gridSize - 1;
+                    for (let row = gridSize - 1; row >= 0; row--) {
+                        if (board[row][col] !== -1) {
+                            board[emptyRow][col] = board[row][col];
+                            emptyRow--;
+                        }
+                    }
+                    while (emptyRow >= 0) {
+                        board[emptyRow][col] = Math.floor(Math.random() * 5);
+                        emptyRow--;
+                    }
+                }
+                match3Status.textContent = `Matched ${matches.length} tiles! Score: ${score}`;
+            }
+
+            function updateLeaderboard() {
+                if (!leaderboardEl) return;
+                leaderboard.sort((a, b) => b.score - a.score);
+                leaderboard = leaderboard.slice(0, 5);
+                leaderboardEl.innerHTML = '<h3>Leaderboard</h3><ul>' + 
+                    leaderboard.map(entry => `<li>${entry.name}: ${entry.score}</li>`).join('') + 
+                    '</ul>';
+            }
+
+            if (canvas) {
+                canvas.addEventListener('click', debounce((e) => {
+                    const rect = canvas.getBoundingRect();
+                    const col = Math.floor((e.clientX - rect.left) / (canvas.width / gridSize));
+                    const row = Math.floor((e.clientY - rect.top) / (canvas.height / gridSize));
+                    if (row >= 0 && row < gridSize && col >= 0 && col < gridSize) {
+                        if (!selectedTile) {
+                            selectedTile = [row, col];
+                            match3Status.textContent = `Selected tile at row ${row + 1}, column ${col + 1}.`;
+                        } else {
+                            const [sRow, sCol] = selectedTile;
+                            if ((Math.abs(sRow - row) === 1 && sCol === col) || (Math.abs(sCol - col) === 1 && sRow === row)) {
+                                [board[sRow][sCol], board[row][col]] = [board[row][col], board[sRow][sCol]];
+                                let matches = findMatches();
+                                if (matches.length > 0) {
+                                    removeMatches(matches);
+                                    while (matches.length > 0) {
+                                        matches = findMatches();
+                                        if (matches.length > 0) removeMatches(matches);
+                                    }
+                                    leaderboard.push({ name: 'Player', score });
+                                    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+                                    updateLeaderboard();
+                                } else {
+                                    [board[sRow][sCol], board[row][col]] = [board[row][col], board[sRow][sCol]];
+                                    match3Status.textContent = 'No match! Try again.';
+                                }
+                            }
+                            selectedTile = null;
+                        }
+                        drawBoard();
+                    }
+                }, 200));
+            } else {
+                logError('Match-3', 'Canvas not found');
+            }
+
+            // Rhymes Carousel
+            const rhymesSlides = document.getElementById('rhymesSlides');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const playAllBtn = document.getElementById('playAllBtn');
+            const indicators = document.getElementById('indicators')?.children;
+            let currentSlide = 0;
+            let isPlayingAll = false;
+            const slideCount = document.querySelectorAll('.rhyme-slide').length;
+
+            function goToSlide(index) {
+                if (!rhymesSlides || !indicators) {
+                    logError('Rhymes', 'Slides or indicators not found');
+                    return;
+                }
+                currentSlide = (index + slideCount) % slideCount;
+                rhymesSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                Array.from(indicators).forEach((ind, i) => {
+                    ind.classList.toggle('active', i === currentSlide);
+                    ind.setAttribute('aria-selected', i === currentSlide);
+                });
+            }
+
+            function playNextRhyme() {
+                if (!isPlayingAll) return;
+                const audio = document.querySelectorAll('.rhyme-audio')[currentSlide];
+                if (audio) {
+                    audio.play().catch(() => logError('Rhymes', `Failed to play ${audio.dataset.title}`));
+                    audio.onended = () => {
+                        goToSlide(currentSlide + 1);
+                        playNextRhyme();
+                    };
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide - 1);
+                    isPlayingAll = false;
+                    playAllBtn.textContent = 'Play All';
+                });
+                prevBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        goToSlide(currentSlide - 1);
+                        isPlayingAll = false;
+                        playAllBtn.textContent = 'Play All';
+                    }
+                });
+            } else {
+                logError('Rhymes', 'Previous button not found');
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide + 1);
+                    isPlayingAll = false;
+                    playAllBtn.textContent = 'Play All';
+                });
+                nextBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        goToSlide(currentSlide + 1);
+                        isPlayingAll = false;
+                        playAllBtn.textContent = 'Play All';
+                    }
+                });
+            } else {
+                logError('Rhymes', 'Next button not found');
+            }
+            if (indicators) {
+                Array.from(indicators).forEach((ind, i) => {
+                    ind.addEventListener('click', () => {
+                        goToSlide(i);
+                        isPlayingAll = false;
+                        playAllBtn.textContent = 'Play All';
+                    });
+                    ind.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            goToSlide(i);
+                            isPlayingAll = false;
+                            playAllBtn.textContent = 'Play All';
+                        }
+                    });
+                });
+            } else {
+                logError('Rhymes', 'Indicators not found');
+            }
+            if (playAllBtn) {
+                playAllBtn.addEventListener('click', () => {
+                    isPlayingAll = !isPlayingAll;
+                    playAllBtn.textContent = isPlayingAll ? 'Pause' : 'Play All';
+                    if (isPlayingAll) {
+                        goToSlide(0);
+                        playNextRhyme();
+                    } else {
+                        document.querySelectorAll('.rhyme-audio').forEach(audio => audio.pause());
+                    }
+                });
+                playAllBtn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        playAllBtn.click();
+                    }
+                });
+            } else {
+                logError('Rhymes', 'Play All button not found');
+            }
+
+            // Auto-pause Other Audio
+            document.querySelectorAll('.rhyme-audio, .story-audio').forEach(audio => {
+                audio.addEventListener('play', () => {
+                    document.querySelectorAll('.rhyme-audio, .story-audio').forEach(other => {
+                        if (other !== audio) other.pause();
+                    });
+                    if (isPlayingAll && audio.classList.contains('rhyme-audio')) {
+                        isPlayingAll = false;
+                        playAllBtn.textContent = 'Play All';
+                    }
+                });
+                audio.addEventListener('error', () => {
+                    logError('Audio', `Failed to load ${audio.dataset.title || 'audio'}`);
+                });
             });
-        }
-    </script>
-</body>
-</html>
+
+            // Story Modal with Interactive Choices
+            const storyModal = document.getElementById('storyModal');
+            const closeModal = document.querySelector('.close-modal');
+            const modalStoryContent = document.getElementById('modalStoryContent');
+            const storyStatus = document.getElementById('storyStatus');
+            const stories = {
+                'red-hen': {
+                    content: `
+                        <h2>The Little Red Hen</h2>
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136" alt="The Little Red Hen" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;margin:1rem 0;">
+                        <audio class="story-audio" controls aria-label="Play The Little Red Hen" data-title="The Little Red Hen">
+                            <source src="https://www.example.com/audio/red-hen.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p>Once upon a time, a little red hen found a grain of wheat. She asked, "Who will help me plant this wheat?"</p>
+                        <button class="story-choice" data-choice="plant-help">Help Plant</button>
+                        <button class="story-choice" data-choice="plant-no">Don't Help</button>
+                        <div id="red-hen-choice"></div>
+                        <p><strong>Moral:</strong> If you don't help with the work, you don't get to share the rewards.</p>
+                    `,
+                    choices: []
+                },
+                'three-pigs': {
+                    content: `
+                        <h2>The Three Little Pigs</h2>
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646" alt="The Three Little Pigs" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;margin:1rem 0;">
+                        <audio class="story-audio" controls aria-label="Play The Three Little Pigs" data-title="The Three Little Pigs">
+                            <source src="https://www.example.com/audio/three-pigs.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p>The first pig built a house of straw. Should he reinforce it?</p>
+                        <button class="story-choice" data-choice="straw-reinforce">Reinforce</button>
+                        <button class="story-choice" data-choice="straw-no">Leave as is</button>
+                        <div id="three-pigs-choice"></div>
+                        <p><strong>Moral:</strong> Hard work and perseverance pay off.</p>
+                    `,
+                    choices: []
+                },
+                'tortoise-hare': {
+                    content: `
+                        <h2>The Tortoise and the Hare</h2>
+                        <img src="https://images.unsplash.com/photo-1549056572-75914d5d5fd4" alt="The Tortoise and the Hare" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;margin:1rem 0;">
+                        <audio class="story-audio" controls aria-label="Play The Tortoise and the Hare" data-title="The Tortoise and the Hare">
+                            <source src="https://www.example.com/audio/tortoise-hare.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p>The hare is leading. Should he take a nap?</p>
+                        <button class="story-choice" data-choice="hare-nap">Take a Nap</button>
+                        <button class="story-choice" data-choice="hare-run">Keep Running</button>
+                        <div id="tortoise-hare-choice"></div>
+                        <p><strong>Moral:</strong> Slow and steady wins the race.</p>
+                    `,
+                    choices: []
+                }
+            };
+
+            document.querySelectorAll('.read-more').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (modalStoryContent && storyModal && storyStatus) {
+                        const storyId = link.dataset.story;
+                        modalStoryContent.innerHTML = stories[storyId].content || '<p>Story not found.</p>';
+                        modalStoryContent.innerHTML += '<button class="btn restart-story" role="button">Restart Story</button>';
+                        storyModal.style.display = 'flex';
+                        storyModal.focus();
+                        stories[storyId].choices = [];
+                        updateStoryProgress(storyId);
+                        setupStoryChoices(storyId);
+                        storyStatus.textContent = `Opened ${storyId.replace('-', ' ')} story.`;
+                    } else {
+                        logError('Stories', 'Story modal, content, or status not found');
+                    }
+                });
+                link.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        link.click();
+                    }
+                });
+            });
+
+            function setupStoryChoices(storyId) {
+                const choices = {
+                    'plant-help': 'You helped plant the wheat! The hen is grateful.',
+                    'plant-no': 'You didn’t help. The hen planted it alone.',
+                    'straw-reinforce': 'The straw house is stronger now!',
+                    'straw-no': 'The straw house remains weak.',
+                    'hare-nap': 'The hare took a nap, and the tortoise caught up!',
+                    'hare-run': 'The hare kept running but got tired.'
+                };
+                document.querySelectorAll('.story-choice').forEach(choice => {
+                    choice.addEventListener('click', () => {
+                        const choiceId = choice.dataset.choice;
+                        stories[storyId].
