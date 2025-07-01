@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive educational platform for kids with real-time puzzle games, nursery rhymes, interactive stories, and parenting resources.">
     <meta name="keywords" content="kids, children, educational games, puzzle games, nursery rhymes, bedtime stories, parenting, learning">
     <meta name="author" content="Kids Fun World">
@@ -15,6 +15,9 @@
     <title>Kids Fun World | Educational Games, Rhymes & Stories</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
     <style>
         :root {
             --primary-color: #FF6B6B;
@@ -321,6 +324,11 @@
         .indicator.active {
             background-color: var(--primary-color);
         }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
         .stories-section {
             padding: 4rem 0;
             background-color: #f0f9ff;
@@ -413,6 +421,7 @@
             margin: 2rem 0;
             border-radius: 5px;
             border: 1px dashed #ccc;
+            min-height: 90px;
         }
         .ad-label {
             display: inline-block;
@@ -422,6 +431,17 @@
             font-size: 0.8rem;
             margin-bottom: 0.5rem;
             color: #666;
+        }
+        .ad-error {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .in-feed-ad {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
         }
         footer {
             background-color: var(--dark-color);
@@ -579,6 +599,10 @@
             #match3Canvas {
                 width: 100%;
             }
+            ins.adsbygoogle {
+                width: 100% !important;
+                height: auto !important;
+            }
         }
         @media (max-width: 480px) {
             .puzzle-board {
@@ -632,6 +656,18 @@
         </div>
     </header>
 
+    <!-- Top Ad Section -->
+    <div class="container ad-section" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" aria-label="Welcome section">
         <div class="container">
@@ -640,14 +676,6 @@
             <a href="#puzzles" class="btn" role="button">Start Playing</a>
         </div>
     </section>
-
-    <!-- Ad Section -->
-    <div class="container ad-section" aria-label="Advertisement">
-        <span class="ad-label">Advertisement</span>
-        <div id="ad-banner-top">
-            <img src="https://via.placeholder.com/728x90?text=Ad+Banner" alt="Advertisement" style="max-width:100%;height:auto;">
-        </div>
-    </div>
 
     <!-- Features Section -->
     <section class="features" id="features" aria-label="Features section">
@@ -714,12 +742,16 @@
         </div>
     </section>
 
-    <!-- Ad Section -->
+    <!-- Mid-Page Ad Section -->
     <div class="container ad-section" aria-label="Advertisement">
         <span class="ad-label">Advertisement</span>
-        <div id="ad-banner-middle">
-            <img src="https://via.placeholder.com/728x90?text=Ad+Banner" alt="Advertisement" style="max-width:100%;height:auto;">
-        </div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="0987654321"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
     </div>
 
     <!-- Rhymes Section -->
@@ -788,6 +820,16 @@
                         <p>A hardworking hen teaches her friends about helping out.</p>
                         <a href="#" class="read-more" data-story="red-hen" role="button">Read Full Story</a>
                     </div>
+                </div>
+                <div class="in-feed-ad" aria-label="Advertisement">
+                    <span class="ad-label">Advertisement</span>
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="1122334455"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="true"></ins>
+                    <div class="ad-error" style="display:none;">Ad failed to load</div>
                 </div>
                 <div class="story-card" tabindex="0">
                     <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646');"></div>
@@ -913,12 +955,16 @@
         </div>
     </section>
 
-    <!-- Ad Section -->
+    <!-- Footer Ad Section -->
     <div class="container ad-section" aria-label="Advertisement">
         <span class="ad-label">Advertisement</span>
-        <div id="ad-banner-bottom">
-            <img src="https://via.placeholder.com/728x90?text=Ad+Banner" alt="Advertisement" style="max-width:100%;height:auto;">
-        </div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="5678901234"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <div class="ad-error" style="display:none;">Ad failed to load</div>
     </div>
 
     <!-- Story Modal -->
@@ -997,6 +1043,19 @@
                     timeout = setTimeout(() => fn(...args), ms);
                 };
             }
+
+            // AdSense Error Handling
+            function initAds() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    logError('AdSense', 'Failed to initialize ads: ' + e.message);
+                    document.querySelectorAll('.ad-section .ad-error').forEach(error => {
+                        error.style.display = 'block';
+                    });
+                }
+            }
+            setTimeout(initAds, 1000);
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1616,12 +1675,6 @@
             if (document.querySelector('.accordion-header')) {
                 document.querySelector('.accordion-header').click();
             }
-
-            // Ad Loading Simulation
-            function loadAds() {
-                console.log('Ads loaded from ad network (e.g., Google AdSense)');
-            }
-            setTimeout(loadAds, 2000);
 
             // Analytics
             function trackPageView() {
